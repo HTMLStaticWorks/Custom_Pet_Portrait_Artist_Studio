@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawVinci Atelier | Portfolio by Medium (Oil, Digital, Watercolor)</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="description"
+    content="Explore custom pet portraits by medium: master Oil on canvas, luminous Watercolor on Arches paper, and Giclée Digital fine art.">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <style>
+    .gallery-tag-pill {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      background: rgba(196, 104, 73, 0.12);
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+
+    .medium-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: rgba(196, 104, 73, 0.12);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .medium-feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+      text-align: left;
+    }
+
+    .medium-feature-list li {
+      padding: 6px 0;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-color);
+    }
+
+    .medium-feature-list li i {
+      color: var(--primary);
+      font-size: 0.85rem;
+    }
+
+    .medium-hero-card {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .medium-hero-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--card-hover-border);
+    }
+
+    .comparison-table-wrapper {
+      overflow-x: auto;
+      background: var(--surface-color);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      padding: 24px;
+      margin-top: 30px;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .comparison-table th {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement-bar">
+    <span>✦ Custom Pet Portrait Commissions &bull; Handcrafted in USA &bull; 100% Satisfaction Guarantee ✦</span>
+  </div>
+
+  <!-- Drawer Nav -->
+  <div class="drawer-overlay"></div>
+  <nav class="nav-drawer">
+    <button class="drawer-close" aria-label="Close menu">&times;</button>
+    <div class="drawer-links">
+      <a href="index.html">Home</a>
+      <a href="home2.html">Home 2</a>
+      <a href="services.html" class="active">Portfolios</a>
+      <a href="about.html">Process</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Journal</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="drawer-actions">
+      <div class="drawer-toggles">
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
+            class="fa-solid fa-right-left"></i></button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
+            class="fa-solid fa-moon"></i></button>
+      </div>
+      <a href="contact.html" class="btn btn-primary btn-full">Commission Art</a>
+    </div>
+  </nav>
+
+  <!-- Main Nav -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="home2.html">Home 2</a>
+        <a href="services.html" class="active">Portfolios</a>
+        <a href="about.html">Process</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blog.html">Journal</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary btn-nav">Commission Art</a>
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
+            class="fa-solid fa-right-left"></i></button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
+            class="fa-solid fa-moon"></i></button>
+      </div>
+      <button class="hamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- Section 1: Hero -->
+  <section class="hero" style="background: linear-gradient(135deg, rgba(14, 14, 28, 0.85) 0%, rgba(26, 26, 46, 0.75) 100%),
+           url('assets/images/hero.jpg') center/cover no-repeat;
+           min-height: 480px; height: 50vh; display: flex; align-items: center;">
+    <div class="container">
+      <div class="hero-content" style="max-width: 700px; margin: 0 auto; text-align: center;">
+        <span class="gallery-tag-pill"
+          style="background: rgba(196, 104, 73, 0.25); color: #F2B29B; margin-bottom: 12px;">Curated Atelier
+          Portfolio</span>
+        <h1 class="fade-in-up" style="transition-delay: 150ms;">Portfolio by Medium</h1>
+        <p class="fade-in-up" style="transition-delay: 300ms; font-size: 1.15rem; color: #FAF6F0;">
+          Discover our specialized portrait collections rendered in Classical Oil, Luminous Watercolor, Fine Art Digital
+          Giclée, and Master Charcoal.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Intro -->
+  <section class="section-padding pb-0 text-center">
+    <div class="container">
+      <div class="fade-in-up" style="max-width: 800px; margin: 0 auto;">
+        <span class="gallery-tag-pill">Fine Art Exploration</span>
+        <h2 class="text-primary">Choosing the Perfect Medium for Your Pet</h2>
+        <p>Each fine art medium conveys a distinct character, luminosity, and emotional resonance. Whether you prefer
+          the dramatic, centuries-old legacy of oil on canvas, the airy poetry of watercolor, or the crisp versatility
+          of digital Giclée, we tailor every brushmark to honor your companion's true spirit.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: In-Depth Medium Portfolios -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px;">
+
+        <!-- Medium 1: Classical Oil -->
+        <div id="oil" class="medium-hero-card fade-in-up">
+          <div style="height: 250px; overflow: hidden; position: relative;">
+            <img src="assets/images/classic-wood-frame.jpg" alt="Oil Pet Portrait"
+              style="width: 100%; height: 100%; object-fit: cover;">
+            <span
+              style="position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.75); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem;">Archival
+              Linen Canvas</span>
+          </div>
+          <div style="padding: 28px;">
+            <span class="medium-badge"><i class="fa-solid fa-palette"></i> Signature Masterpiece</span>
+            <h3 style="margin-bottom: 8px;">Classical Oil on Canvas</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Painted using centuries-old Renaissance glazing and
+              impasto techniques. Rich in depth, lustrous sheen, and texture you can feel.</p>
+            <ul class="medium-feature-list">
+              <li><i class="fa-solid fa-check"></i> 100% Belgian Belgian Linen stretched over kiln-dried wood</li>
+              <li><i class="fa-solid fa-check"></i> Rich, lightfast artist pigments (Winsor & Newton / Gamblin)</li>
+              <li><i class="fa-solid fa-check"></i> Sealed with removable Damar archival varnish</li>
+              <li><i class="fa-solid fa-check"></i> Lifespan: 100+ years heirloom grade</li>
+            </ul>
+            <div style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-weight: 700; color: var(--primary);">From $495</span>
+              <a href="contact.html?medium=oil" class="btn btn-outline btn-sm">Commission Oil</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Medium 2: Luminous Watercolor -->
+        <div id="watercolor" class="medium-hero-card fade-in-up" style="transition-delay: 100ms;">
+          <div style="height: 250px; overflow: hidden; position: relative;">
+            <img src="assets/images/matted-box-frame.jpg" alt="Watercolor Pet Portrait"
+              style="width: 100%; height: 100%; object-fit: cover;">
+            <span
+              style="position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.75); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem;">100%
+              Cotton Arches Paper</span>
+          </div>
+          <div style="padding: 28px;">
+            <span class="medium-badge"><i class="fa-solid fa-droplet"></i> Fluid & Delicate</span>
+            <h3 style="margin-bottom: 8px;">Luminous Watercolor</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Soft, breathing pigment washes that capture subtle
+              coat gradations, whisker highlights, and the emotional tenderness of your pet.</p>
+            <ul class="medium-feature-list">
+              <li><i class="fa-solid fa-check"></i> 300gsm cold-pressed Arches 100% pure cotton paper</li>
+              <li><i class="fa-solid fa-check"></i> Schmincke Horadam & Daniel Smith extra-fine pigments</li>
+              <li><i class="fa-solid fa-check"></i> Includes acid-free museum mat board mounting</li>
+              <li><i class="fa-solid fa-check"></i> Turnaround: 2–3 weeks fast studio track</li>
+            </ul>
+            <div style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-weight: 700; color: var(--primary);">From $249</span>
+              <a href="contact.html?medium=watercolor" class="btn btn-outline btn-sm">Commission Watercolor</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Medium 3: Digital Fine Art -->
+        <div id="digital" class="medium-hero-card fade-in-up" style="transition-delay: 200ms;">
+          <div style="height: 250px; overflow: hidden; position: relative;">
+            <img src="assets/images/Duke.png" alt="Digital Pet Portrait"
+              style="width: 100%; height: 100%; object-fit: cover;">
+            <span
+              style="position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.75); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem;">Hand-Painted
+              Giclée Print</span>
+          </div>
+          <div style="padding: 28px;">
+            <span class="medium-badge"><i class="fa-solid fa-pen-nib"></i> Modern & Versatile</span>
+            <h3 style="margin-bottom: 8px;">Digital Fine Art Giclée</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Hand-painted digitally stroke by stroke on a
+              pressure-sensitive graphics tablet (no AI filters). Printed onto heavy archival museum rag.</p>
+            <ul class="medium-feature-list">
+              <li><i class="fa-solid fa-check"></i> Ultra-high-resolution 300 DPI master digital artwork file</li>
+              <li><i class="fa-solid fa-check"></i> Hahnemühle German Etching 310gsm archival paper print</li>
+              <li><i class="fa-solid fa-check"></i> Flexible size scaling & reprint capability for family</li>
+              <li><i class="fa-solid fa-check"></i> Turnaround: 10–14 business days</li>
+            </ul>
+            <div style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-weight: 700; color: var(--primary);">From $195</span>
+              <a href="contact.html?medium=digital" class="btn btn-outline btn-sm">Commission Digital</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Medium 4: Charcoal & Graphite -->
+        <div id="charcoal" class="medium-hero-card fade-in-up">
+          <div style="height: 250px; overflow: hidden; position: relative;">
+            <img src="assets/images/DOGS.png" alt="Charcoal Pet Portrait"
+              style="width: 100%; height: 100%; object-fit: cover;">
+            <span
+              style="position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.75); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem;">Heavy
+              Vellum Drawing Paper</span>
+          </div>
+          <div style="padding: 28px;">
+            <span class="medium-badge"><i class="fa-solid fa-pencil"></i> Timeless Monochrome</span>
+            <h3 style="margin-bottom: 8px;">Fine Graphite</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Striking black-and-white tonal contrast capturing
+              the profound depth of your pet's eyes and intricate coat textures.</p>
+            <ul class="medium-feature-list">
+              <li><i class="fa-solid fa-check"></i> Heavyweight Strathmore 500 series archival drawing vellum</li>
+              <li><i class="fa-solid fa-check"></i> Professional fixative seal to prevent smudging</li>
+              <li><i class="fa-solid fa-check"></i> Stunning in modern minimalist and classic interiors</li>
+              <li><i class="fa-solid fa-check"></i> Turnaround: 2 weeks</li>
+            </ul>
+            <div style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-weight: 700; color: var(--primary);">From $225</span>
+              <a href="contact.html?medium=charcoal" class="btn btn-outline btn-sm">Commission Charcoal</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Medium 5: Multi-Pet Duo / Trio -->
+        <div id="multi-pet" class="medium-hero-card fade-in-up" style="transition-delay: 100ms;">
+          <div style="height: 250px; overflow: hidden; position: relative;">
+            <img src="assets/images/Milo.png" alt="Multi-Pet Portrait"
+              style="width: 100%; height: 100%; object-fit: cover;">
+            <span
+              style="position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.75); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem;">Combined
+              Composition</span>
+          </div>
+          <div style="padding: 28px;">
+            <span class="medium-badge"><i class="fa-solid fa-paw"></i> Family Companions</span>
+            <h3 style="margin-bottom: 8px;">Multi-Pet Portraits</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Don't have a photo with all your pets sitting
+              together nicely? We harmonize individual photos into one cohesive, balanced portrait.</p>
+            <ul class="medium-feature-list">
+              <li><i class="fa-solid fa-check"></i> Available in Oil, Watercolor, and Digital mediums</li>
+              <li><i class="fa-solid fa-check"></i> Custom color harmonization & lighting alignment</li>
+              <li><i class="fa-solid fa-check"></i> Up to 6 pets on a single heirloom canvas</li>
+              <li><i class="fa-solid fa-check"></i> Digital composition mock-up before painting starts</li>
+            </ul>
+            <div style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-weight: 700; color: var(--primary);">Custom Quote</span>
+              <a href="contact.html?type=multipet" class="btn btn-outline btn-sm">Request Duo/Trio</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Medium 6: Memorial Art -->
+        <div id="memorial" class="medium-hero-card fade-in-up" style="transition-delay: 200ms;">
+          <div style="height: 250px; overflow: hidden; position: relative;">
+            <img src="assets/images/Chloe.png" alt="Memorial Pet Portrait"
+              style="width: 100%; height: 100%; object-fit: cover;">
+            <span
+              style="position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.75); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem;">Tribute
+              Keepsake</span>
+          </div>
+          <div style="padding: 28px;">
+            <span class="medium-badge"><i class="fa-solid fa-heart"></i> Gentle Legacy</span>
+            <h3 style="margin-bottom: 8px;">Tribute Heirlooms</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">A compassionate, tender process helping you honor a
+              departed best friend. We can work with older, lower-resolution photos.</p>
+            <ul class="medium-feature-list">
+              <li><i class="fa-solid fa-check"></i> Optional subtle halo, celestial lighting, or floral wreaths</li>
+              <li><i class="fa-solid fa-check"></i> Complimentary artist letter of remembrance</li>
+              <li><i class="fa-solid fa-check"></i> Free photo enhancement & restoration consultation</li>
+              <li><i class="fa-solid fa-check"></i> Hand-signed Certificate of Memorial Remembrance</li>
+            </ul>
+            <div style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-weight: 700; color: var(--primary);">From $249</span>
+              <a href="contact.html?type=memorial" class="btn btn-outline btn-sm">Memorial Request</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Medium Comparison Table -->
+      <div class="comparison-table-wrapper fade-in-up">
+        <h3 style="text-align: center; margin-bottom: 20px; color: var(--primary);">Medium Comparison at a Glance</h3>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Medium</th>
+              <th>Surface</th>
+              <th>Texture / Look</th>
+              <th>Archival Lifespan</th>
+              <th>Turnaround Time</th>
+              <th>Starting Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Classical Oil</strong></td>
+              <td>Belgian Linen Canvas</td>
+              <td>Rich impasto & luminous glazes</td>
+              <td>100+ Years</td>
+              <td>3–5 Weeks</td>
+              <td>$495</td>
+            </tr>
+            <tr>
+              <td><strong>Watercolor</strong></td>
+              <td>Arches 300gsm Cotton Paper</td>
+              <td>Ethereal, fluid & soft washes</td>
+              <td>75+ Years (Framed under UV)</td>
+              <td>2–3 Weeks</td>
+              <td>$249</td>
+            </tr>
+            <tr>
+              <td><strong>Digital Fine Art</strong></td>
+              <td>Hahnemühle Archival Rag Print</td>
+              <td>Crisp, detailed & vibrant</td>
+              <td>80+ Years</td>
+              <td>10–14 Days</td>
+              <td>$195</td>
+            </tr>
+            <tr>
+              <td><strong>Charcoal & Graphite</strong></td>
+              <td>Strathmore Archival Vellum</td>
+              <td>Deep blacks & nuanced shading</td>
+              <td>80+ Years (Fixed & framed)</td>
+              <td>2 Weeks</td>
+              <td>$225</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner fade-in-up">
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <h2>Need Help Selecting the Right Medium?</h2>
+      <p class="mb-6" style="max-width: 550px; color: rgba(255,255,255,0.92);">
+        Send us your pet's photos and Eleanor Vance will provide a complimentary medium & composition recommendation
+        tailored to your pet's coloring.
+      </p>
+      <a href="contact.html" class="btn btn-primary btn-lg">Request Free Consultation</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid fade-in-up">
+        <div style="text-align: inherit;">
+          <a href="index.html" class="logo">
+            <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+          </a>
+          <p class="footer-desc">Bespoke fine art pet portraiture honoring loyal companions worldwide. Hand-crafted in
+            oil, watercolor, and digital Giclée since 2012.</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon pinterest" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" class="social-icon youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Studio Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home2.html">Home 2</a></li>
+            <li><a href="services.html">Portfolio by Medium</a></li>
+            <li><a href="about.html">Commission Process</a></li>
+            <li><a href="pricing.html">Pricing & Sizes</a></li>
+            <li><a href="contact.html">Request a Portrait</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Artistic Mediums</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#oil">Classical Oil on Linen</a></li>
+            <li><a href="services.html#watercolor">Luminous Watercolor</a></li>
+            <li><a href="services.html#digital">Fine Art Digital Giclée</a></li>
+            <li><a href="services.html#charcoal">Charcoal & Graphite</a></li>
+            <li><a href="services.html#memorial">Memorial Portraits</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Atelier Updates</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Receive studio release
+            announcements, framing guides, and pet art stories.</p>
+          <form class="newsletter-form">
+            <input type="email" class="form-control" placeholder="Your email address" required>
+            <button type="submit" class="btn btn-primary" style="padding: 12px 18px;"
+              aria-label="Subscribe">&rarr;</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom fade-in-up">
+        <p>&copy; 2026 PawVinci Atelier. Custom Pet Portrait Artist Studio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

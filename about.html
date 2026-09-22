@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commission Process & Atelier Craftsmanship | PawVinci &times; Lumen &amp; Gesso</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="description"
+    content="A small fine art studio crafting bespoke portraits of the family pet. Pick a style, share a photo, and receive a proof to review — with revisions until it is unmistakably them.">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,16..72,400;0,16..72,500;1,16..72,400;1,16..72,500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <style>
+    :root {
+      --lg-bg: var(--bg-light);
+      --lg-card: var(--surface-color);
+      --lg-text: var(--text-color);
+      --lg-muted: var(--text-muted);
+      --lg-accent: var(--primary);
+      --lg-tape: #F4E8D8;
+      --font-editorial: 'Newsreader', 'Playfair Display', serif;
+    }
+
+    /* Lumen & Gesso Hero */
+    .lg-hero {
+      padding: 100px 0 60px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(196, 104, 73, 0.05) 0%, rgba(250, 247, 242, 0) 100%);
+    }
+
+    .lg-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--primary);
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+
+    .lg-hero-title {
+      font-family: var(--font-editorial);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--text-color);
+      max-width: 800px;
+      margin: 0 auto 18px;
+    }
+
+    .lg-hero-lead {
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto 32px;
+      line-height: 1.65;
+    }
+
+    /* Value Props Row */
+    .lg-valueprops-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 30px 24px;
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      margin-bottom: 70px;
+    }
+
+    @media (max-width: 900px) {
+      .lg-valueprops-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 550px) {
+      .lg-valueprops-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .lg-valueprop-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .lg-valueprop-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(196, 104, 73, 0.12);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+
+    .lg-valueprop-title {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--text-color);
+      margin-bottom: 3px;
+    }
+
+    .lg-valueprop-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Transform / Before & After Stage (Lumen & Gesso signature) */
+    .transform-section {
+      padding: 60px 0 80px;
+    }
+
+    .transform-intro {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 50px;
+    }
+
+    .transform-h2 {
+      font-family: var(--font-editorial);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      color: var(--text-color);
+      margin-bottom: 12px;
+    }
+
+    .transform-pairs {
+      display: flex;
+      flex-direction: column;
+      gap: 70px;
+    }
+
+    .transform-pair-card {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 48px;
+      align-items: center;
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    }
+
+    @media (max-width: 900px) {
+      .transform-pair-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 24px;
+      }
+    }
+
+    .transform-stage {
+      position: relative;
+      border-radius: 16px;
+      overflow: visible;
+    }
+
+    .after-framed-img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.12);
+      display: block;
+    }
+
+    /* Taped "What we worked from" Polaroids */
+    .before-photo-polaroid {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 170px;
+      background: #FFFFFF;
+      padding: 10px 10px 24px;
+      border-radius: 6px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+      transform: rotate(4.5deg);
+      z-index: 10;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .before-photo-polaroid img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 3px;
+    }
+
+    .polaroid-tape {
+      position: absolute;
+      top: -12px;
+      left: 35%;
+      width: 50px;
+      height: 20px;
+      background: rgba(235, 222, 204, 0.85);
+      border-left: 2px dashed rgba(200, 185, 165, 0.6);
+      border-right: 2px dashed rgba(200, 185, 165, 0.6);
+      transform: rotate(-3deg);
+    }
+
+    .polaroid-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      display: block;
+      text-align: center;
+    }
+
+    .transform-story-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .transform-plate {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .transform-plate-line {
+      flex-grow: 1;
+      height: 1px;
+      background: var(--border-color);
+    }
+
+    .transform-pet-name {
+      font-family: var(--font-editorial);
+      font-size: 2.25rem;
+      color: var(--text-color);
+      margin-bottom: 4px;
+    }
+
+    .transform-medium-label {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .transform-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .transform-price-now {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .transform-price-was {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .transform-blurb {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-color);
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    /* Sticky 4-Step Process Section (Lumen & Gesso layout) */
+    .process-section {
+      padding: 80px 0;
+      background: rgba(196, 104, 73, 0.03);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .process-sticky-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .process-sticky-layout {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+
+    .process-sticky-left {
+      position: sticky;
+      top: 120px;
+    }
+
+    .process-step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .lg-step-card {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 32px 28px;
+      display: flex;
+      gap: 22px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .lg-step-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary);
+    }
+
+    .lg-step-num {
+      font-family: var(--font-editorial);
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--primary);
+      line-height: 1;
+      opacity: 0.9;
+    }
+
+    .lg-step-title {
+      font-family: var(--font-editorial);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 8px;
+    }
+
+    .lg-step-body {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Materials Section ("Four ways to hang it") */
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .material-card {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+      transition: transform 0.3s ease;
+    }
+
+    .material-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--card-hover-border);
+    }
+
+    .material-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .material-body {
+      padding: 24px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement-bar">
+    <span>✦ Custom Pet Portrait Commissions &bull; Handcrafted in USA &bull; 100% Satisfaction Guarantee ✦</span>
+  </div>
+
+  <!-- Drawer Nav -->
+  <div class="drawer-overlay"></div>
+  <nav class="nav-drawer">
+    <button class="drawer-close" aria-label="Close menu">&times;</button>
+    <div class="drawer-links">
+      <a href="index.html">Home</a>
+      <a href="home2.html">Home 2</a>
+      <a href="services.html">Portfolios</a>
+      <a href="about.html" class="active">Process</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Journal</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="drawer-actions">
+      <div class="drawer-toggles">
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
+            class="fa-solid fa-right-left"></i></button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
+            class="fa-solid fa-moon"></i></button>
+      </div>
+      <a href="contact.html" class="btn btn-primary btn-full">Commission Art</a>
+    </div>
+  </nav>
+
+  <!-- Main Nav -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="home2.html">Home 2</a>
+        <a href="services.html">Portfolios</a>
+        <a href="about.html" class="active">Process</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blog.html">Journal</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary btn-nav">Commission Art</a>
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
+            class="fa-solid fa-right-left"></i></button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
+            class="fa-solid fa-moon"></i></button>
+      </div>
+      <button class="hamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- Section 1: Lumen & Gesso Editorial Hero -->
+  <section class="lg-hero">
+    <div class="container">
+      <span class="lg-eyebrow">PawVinci &times; Lumen &amp; Gesso Studio</span>
+      <h1 class="lg-hero-title">Custom Pet Portraits, Made with Care.</h1>
+      <p class="lg-hero-lead">
+        A small studio crafting bespoke portraits of the family pet. Pick a style, share a photo, and receive a proof to review — with revisions until it’s unmistakably them.
+      </p>
+      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <a href="contact.html" class="btn btn-primary">Start a Portrait &rarr;</a>
+        <a href="services.html" class="btn btn-outline">Explore Mediums &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Value Props Row (Lumen & Gesso style) -->
+  <div class="container">
+    <div class="lg-valueprops-row fade-in-up">
+      
+      <div class="lg-valueprop-item">
+        <div class="lg-valueprop-icon"><i class="fa-solid fa-bolt"></i></div>
+        <div>
+          <div class="lg-valueprop-title">Proof in 1 business day</div>
+          <div class="lg-valueprop-desc">A private link arrives Mon–Fri — usually within 24 hours.</div>
+        </div>
+      </div>
+
+      <div class="lg-valueprop-item">
+        <div class="lg-valueprop-icon"><i class="fa-solid fa-gem"></i></div>
+        <div>
+          <div class="lg-valueprop-title">Archival materials</div>
+          <div class="lg-valueprop-desc">Real solid wood frame, acid-free mount, 200 gsm fine art paper.</div>
+        </div>
+      </div>
+
+      <div class="lg-valueprop-item">
+        <div class="lg-valueprop-icon"><i class="fa-solid fa-globe"></i></div>
+        <div>
+          <div class="lg-valueprop-title">Free worldwide delivery</div>
+          <div class="lg-valueprop-desc">Printed regionally, shipped safely to your door — on us.</div>
+        </div>
+      </div>
+
+      <div class="lg-valueprop-item">
+        <div class="lg-valueprop-icon"><i class="fa-solid fa-shield-heart"></i></div>
+        <div>
+          <div class="lg-valueprop-title">Approve only when you love it</div>
+          <div class="lg-valueprop-desc">Free unlimited revisions until the likeness is completely right.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Section 3: Before & After Transformation Stage (Lumen & Gesso Signature) -->
+  <section class="transform-section">
+    <div class="container">
+      <div class="transform-intro fade-in-up">
+        <div class="lg-eyebrow">Real commissions &bull; before &amp; after</div>
+        <h2 class="transform-h2">From your camera roll, to your wall.</h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem;">A few recent commissions — the phone snapshots we received, and the finished heirloom now hanging in their home.</p>
+      </div>
+
+      <div class="transform-pairs">
+
+        <!-- Pair 1: Sable (Charcoal) -->
+        <article class="transform-pair-card fade-in-up">
+          <div class="transform-stage">
+            <img src="assets/images/DOGS.png" alt="Finished charcoal portrait of Sable in ivory frame" class="after-framed-img">
+            
+            <!-- Polaroid "What we worked from" with tape -->
+            <div class="before-photo-polaroid">
+              <div class="polaroid-tape"></div>
+              <img src="assets/images/before.png" alt="Reference snapshot of Sable">
+              <span class="polaroid-tag">What we worked from</span>
+            </div>
+          </div>
+
+          <div class="transform-story-box">
+            <div class="transform-plate">
+              <span>№ 01</span>
+              <div class="transform-plate-line"></div>
+            </div>
+            <h3 class="transform-pet-name">Sable</h3>
+            <div class="transform-medium-label">Charcoal &bull; Solid Ivory Wood Frame</div>
+            <div class="transform-price-row">
+              <span style="font-size: 0.9rem; color: var(--text-muted);">From</span>
+              <span class="transform-price-was">$350</span>
+              <span class="transform-price-now">$249</span>
+              <span style="background: rgba(196, 104, 73, 0.15); color: var(--primary); font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 12px;">30% Off</span>
+            </div>
+            <p class="transform-blurb">"Whippet curled like a comma. Caught mid-dream. Pure vine charcoal with delicate light dusting, no eraser marks."</p>
+            <a href="contact.html?style=charcoal" class="btn btn-primary btn-sm">Commission one like this &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Pair 2: Juno (Luminous Watercolor / Lineart) -->
+        <article class="transform-pair-card fade-in-up" style="transition-delay: 100ms;">
+          <div class="transform-stage">
+            <img src="assets/images/Chloe.png" alt="Finished watercolor portrait of Juno in honey oak frame" class="after-framed-img">
+            
+            <div class="before-photo-polaroid" style="right: auto; left: -15px; transform: rotate(-4deg);">
+              <div class="polaroid-tape"></div>
+              <img src="assets/images/CATS.png" alt="Reference snapshot of Juno">
+              <span class="polaroid-tag">What we worked from</span>
+            </div>
+          </div>
+
+          <div class="transform-story-box">
+            <div class="transform-plate">
+              <span>№ 02</span>
+              <div class="transform-plate-line"></div>
+            </div>
+            <h3 class="transform-pet-name">Juno</h3>
+            <div class="transform-medium-label">Luminous Watercolor &bull; Natural Oak Frame</div>
+            <div class="transform-price-row">
+              <span style="font-size: 0.9rem; color: var(--text-muted);">From</span>
+              <span class="transform-price-was">$495</span>
+              <span class="transform-price-now">$345</span>
+              <span style="background: rgba(196, 104, 73, 0.15); color: var(--primary); font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 12px;">30% Off</span>
+            </div>
+            <p class="transform-blurb">"Calico kitten, ears at ease. Caught mid-tilt in morning window sunlight. Fluid pigment washes on 100% cotton Arches paper."</p>
+            <a href="contact.html?style=watercolor" class="btn btn-primary btn-sm">Commission one like this &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Pair 3: Barnaby (Classical Oil) -->
+        <article class="transform-pair-card fade-in-up" style="transition-delay: 200ms;">
+          <div class="transform-stage">
+            <img src="assets/images/Luna.png" alt="Finished oil portrait of Barnaby in walnut frame" class="after-framed-img">
+            
+            <div class="before-photo-polaroid">
+              <div class="polaroid-tape"></div>
+              <img src="assets/images/PUPPIES.png" alt="Reference snapshot of Barnaby">
+              <span class="polaroid-tag">What we worked from</span>
+            </div>
+          </div>
+
+          <div class="transform-story-box">
+            <div class="transform-plate">
+              <span>№ 03</span>
+              <div class="transform-plate-line"></div>
+            </div>
+            <h3 class="transform-pet-name">Barnaby</h3>
+            <div class="transform-medium-label">Classical Oil on Linen &bull; American Walnut Floater</div>
+            <div class="transform-price-row">
+              <span style="font-size: 0.9rem; color: var(--text-muted);">From</span>
+              <span class="transform-price-was">$700</span>
+              <span class="transform-price-now">$495</span>
+              <span style="background: rgba(196, 104, 73, 0.15); color: var(--primary); font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 12px;">30% Off</span>
+            </div>
+            <p class="transform-blurb">"Golden Retriever with soulful brown eyes. Layered Renaissance glazing, rich coat impasto, and museum archival varnish."</p>
+            <a href="contact.html?style=oil" class="btn btn-primary btn-sm">Commission one like this &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: The 4-Step Sticky Process (Lumen & Gesso style) -->
+  <section class="process-section" id="process">
+    <div class="container">
+      <div class="process-sticky-layout">
+        
+        <div class="process-sticky-left fade-in-up">
+          <span class="lg-eyebrow">The Atelier Process</span>
+          <h2 style="font-family: var(--font-editorial); font-size: clamp(2rem, 3.5vw, 2.75rem); color: var(--text-color); margin-bottom: 16px;">
+            Four small steps. Most patrons finish in one sitting.
+          </h2>
+          <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.65; margin-bottom: 24px;">
+            It’s a friendly, intimate collaboration — closer to a cozy studio visit than an automated checkout. If you need any advice at any stage, a real artist is just an email or phone call away.
+          </p>
+          <a href="contact.html" class="btn btn-primary">Start Your Commission &rarr;</a>
+        </div>
+
+        <div class="process-step-list">
+          
+          <div class="lg-step-card fade-in-up">
+            <div class="lg-step-num">01</div>
+            <div>
+              <div class="lg-step-title">Tell us about your pet</div>
+              <div class="lg-step-body">Upload a clear photo of your pet and share their name and personality. The studio reviews what you send before we begin work to make sure lighting and angles are optimal.</div>
+            </div>
+          </div>
+
+          <div class="lg-step-card fade-in-up" style="transition-delay: 100ms;">
+            <div class="lg-step-num">02</div>
+            <div>
+              <div class="lg-step-title">Pick a style & medium</div>
+              <div class="lg-step-body">Choose from Classical Oil on Linen, Luminous Watercolor, Digital Fine Art Giclée, or Charcoal — whichever best captures your companion's energy.</div>
+            </div>
+          </div>
+
+          <div class="lg-step-card fade-in-up" style="transition-delay: 200ms;">
+            <div class="lg-step-num">03</div>
+            <div>
+              <div class="lg-step-title">Review your private proof</div>
+              <div class="lg-step-body">Within 24 hours, a private link arrives with your artwork proof. Approve it as-is, or request minor adjustments — unlimited revisions are included until you love it.</div>
+            </div>
+          </div>
+
+          <div class="lg-step-card fade-in-up" style="transition-delay: 300ms;">
+            <div class="lg-step-num">04</div>
+            <div>
+              <div class="lg-step-title">Receive your framed heirloom</div>
+              <div class="lg-step-body">Your finished portrait is prepared for museum archival printing, varnished, custom framed in solid wood if you like, and safely shipped with full insurance and tracking.</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Materials & Craftsmanship ("Four ways to hang it") -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center fade-in-up mb-6">
+        <span class="lg-eyebrow">Materials &amp; Craftsmanship</span>
+        <h2 style="font-family: var(--font-editorial); font-size: clamp(2rem, 4vw, 3rem); color: var(--text-color);">Four ways to hang it.</h2>
+        <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto;">Every commission is handcrafted to last generations using FSC-certified solid hardwoods and acid-free archival mounts.</p>
+      </div>
+
+      <div class="materials-grid">
+        
+        <div class="material-card fade-in-up">
+          <img src="assets/images/classic-wood-frame.jpg" alt="Classic Hardwood Framed Print">
+          <div class="material-body">
+            <h4 style="font-family: var(--font-editorial); font-size: 1.25rem; margin-bottom: 6px;">Classic Wood Frame</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">FSC-certified solid American Walnut, Natural Oak, or Matte Black with lightweight shatterproof acrylic.</p>
+          </div>
+        </div>
+
+        <div class="material-card fade-in-up" style="transition-delay: 100ms;">
+          <img src="assets/images/matted-box-frame.jpg" alt="Matted Museum Box Frame">
+          <div class="material-body">
+            <h4 style="font-family: var(--font-editorial); font-size: 1.25rem; margin-bottom: 6px;">Matted Box Frame</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Bevel-cut Snow White museum mount board offering breathing room and depth for watercolor & charcoal.</p>
+          </div>
+        </div>
+
+        <div class="material-card fade-in-up" style="transition-delay: 200ms;">
+          <img src="assets/images/hero.jpg" alt="Canvas Float Frame">
+          <div class="material-body">
+            <h4 style="font-family: var(--font-editorial); font-size: 1.25rem; margin-bottom: 6px;">Linen Float Frame</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Stretched Belgian linen canvas suspended inside a deep floating wood tray for an ultra-luxury gallery feel.</p>
+          </div>
+        </div>
+
+        <div class="material-card fade-in-up" style="transition-delay: 300ms;">
+          <img src="assets/images/after.png" alt="Stretched Canvas Wrap">
+          <div class="material-body">
+            <h4 style="font-family: var(--font-editorial); font-size: 1.25rem; margin-bottom: 6px;">Gallery Wrapped Canvas</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Clean, frameless 1.5" deep canvas with artwork mirrored around the edges for a contemporary aesthetic.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner fade-in-up">
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <span class="lg-eyebrow" style="color: #FAF6F0; background: rgba(255,255,255,0.18); padding: 4px 14px; border-radius: 20px;">Private Studio Slots Open</span>
+      <h2 style="font-family: var(--font-editorial); font-size: clamp(2rem, 4vw, 3rem);">Ready to Begin Your Pet's Portrait?</h2>
+      <p class="mb-6" style="max-width: 520px; color: rgba(255,255,255,0.92);">Upload your photos today and Eleanor Vance will prepare your initial composition study.</p>
+      <a href="contact.html" class="btn" style="background: var(--primary); color: #fff; font-weight: 600;">Start a Commission &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid fade-in-up">
+        <div style="text-align: inherit;">
+          <a href="index.html" class="logo">
+            <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+          </a>
+          <p class="footer-desc">Bespoke fine art pet portraiture honoring loyal companions worldwide. Hand-crafted in oil, watercolor, and digital Giclée since 2012.</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon pinterest" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" class="social-icon youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Studio Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home2.html">Home 2</a></li>
+            <li><a href="services.html">Portfolio by Medium</a></li>
+            <li><a href="about.html">Commission Process</a></li>
+            <li><a href="pricing.html">Pricing & Sizes</a></li>
+            <li><a href="contact.html">Request a Portrait</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Artistic Mediums</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#oil">Classical Oil on Linen</a></li>
+            <li><a href="services.html#watercolor">Luminous Watercolor</a></li>
+            <li><a href="services.html#digital">Fine Art Digital Giclée</a></li>
+            <li><a href="services.html#charcoal">Charcoal & Graphite</a></li>
+            <li><a href="services.html#memorial">Memorial Portraits</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Atelier Updates</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Receive studio release announcements, framing guides, and pet art stories.</p>
+          <form class="newsletter-form">
+            <input type="email" class="form-control" placeholder="Your email address" required>
+            <button type="submit" class="btn btn-primary" style="padding: 12px 18px;" aria-label="Subscribe">&rarr;</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom fade-in-up">
+        <p>&copy; 2026 PawVinci Atelier. Custom Pet Portrait Artist Studio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

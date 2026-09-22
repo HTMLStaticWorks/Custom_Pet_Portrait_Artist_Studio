@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawVinci Atelier | Custom Pet Portrait Commissions &amp; Hand-Painted Animal Art</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="description"
+    content="Commission a custom, hand-painted portrait of your pet. Crafted in watercolor, graphite, white pencil, and oil by professional fine artists.">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <style>
+    :root {
+      --collection-serif: 'Cormorant', 'Playfair Display', serif;
+      --collection-sans: 'Montserrat', 'DM Sans', sans-serif;
+      --collection-primary: #C46849;
+      --collection-dark: #212A34;
+      --collection-bg: var(--bg-light);
+      --collection-surface: var(--surface-color);
+    }
+
+    body {
+      font-family: var(--collection-sans);
+    }
+
+    /* Collection Hero */
+    .collection-hero {
+      padding: 70px 0 40px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(196, 104, 73, 0.06) 0%, rgba(250, 247, 242, 0) 100%);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .collection-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--primary);
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .collection-title {
+      font-family: var(--collection-serif);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 600;
+      color: var(--text-color);
+      line-height: 1.18;
+      max-width: 850px;
+      margin: 0 auto 16px;
+      letter-spacing: 0.5px;
+    }
+
+    .collection-lead {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 28px;
+      line-height: 1.65;
+    }
+
+    /* Filter / Medium Tabs */
+    .collection-filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .filter-pill {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .filter-pill:hover,
+    .filter-pill.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(196, 104, 73, 0.25);
+    }
+
+    /* Product Collection Grid */
+    .collection-products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      padding: 50px 0 70px;
+    }
+
+    @media (max-width: 992px) {
+      .collection-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .collection-products-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .product-artwork-card {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      position: relative;
+    }
+
+    .product-artwork-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+      border-color: var(--card-hover-border);
+    }
+
+    .product-img-wrapper {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      background: #F2ECE4;
+    }
+
+    .product-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-artwork-card:hover .product-img-wrapper img {
+      transform: scale(1.05);
+    }
+
+    .product-medium-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(33, 42, 52, 0.88);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .product-badge-turnaround {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--collection-dark);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card-body {
+      padding: 24px 22px 26px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-stars {
+      color: #FFB800;
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .product-stars span {
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 500;
+      margin-left: 4px;
+    }
+
+    .product-card-title {
+      font-family: var(--collection-serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--text-color);
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .product-card-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .product-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      padding-top: 14px;
+      margin-top: auto;
+    }
+
+    .product-price-display {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .product-order-btn {
+      padding: 8px 18px;
+      background: var(--collection-dark);
+      color: #fff;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .product-order-btn:hover {
+      background: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* Artist Bio Section */
+    .artist-story-section {
+      background: rgba(196, 104, 73, 0.04);
+      padding: 80px 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .artist-split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    @media (max-width: 850px) {
+      .artist-split-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    .artist-portrait-img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+      border: 4px solid #fff;
+    }
+
+    /* Reviews Section (Judge.me Style) */
+    .reviews-badge-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .reviews-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .collection-review-card {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement-bar">
+    <span>✦ Custom Pet Portrait Commissions &bull; Handcrafted in USA &bull; 100% Satisfaction Guarantee ✦</span>
+  </div>
+
+  <!-- Drawer Nav -->
+  <div class="drawer-overlay"></div>
+  <nav class="nav-drawer">
+    <button class="drawer-close" aria-label="Close menu">&times;</button>
+    <div class="drawer-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="home2.html">Home 2</a>
+      <a href="services.html">Portfolios</a>
+      <a href="about.html">Process</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Journal</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="drawer-actions">
+      <div class="drawer-toggles">
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
+            class="fa-solid fa-right-left"></i></button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
+            class="fa-solid fa-moon"></i></button>
+      </div>
+      <a href="contact.html" class="btn btn-primary btn-full">Commission Art</a>
+    </div>
+  </nav>
+
+  <!-- Main Nav -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="home2.html">Home 2</a>
+        <a href="services.html">Portfolios</a>
+        <a href="about.html">Process</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blog.html">Journal</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary btn-nav">Commission Art</a>
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
+            class="fa-solid fa-right-left"></i></button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
+            class="fa-solid fa-moon"></i></button>
+      </div>
+      <button class="hamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- Section 1: Collection Hero Header -->
+  <header class="collection-hero">
+    <div class="container">
+      <span class="collection-eyebrow">Hand-Painted Animal Art by Professional Artists</span>
+      <h1 class="collection-title">Custom Pet Portrait Commissions</h1>
+      <p class="collection-lead">
+        Commission an original, hand-painted portrait of your beloved pet. Crafted in watercolor, graphite, white pencil
+        on black, and fine oil on archival surfaces.
+      </p>
+
+      <!-- Filter / Category Tabs -->
+      <div class="collection-filter-bar fade-in-up">
+        <button class="filter-pill active" onclick="filterMedium('all', this)">All Mediums</button>
+        <button class="filter-pill" onclick="filterMedium('watercolor', this)">Luminous Watercolor</button>
+        <button class="filter-pill" onclick="filterMedium('graphite', this)">Graphite Pencil</button>
+        <button class="filter-pill" onclick="filterMedium('white-pencil', this)">White Pencil on Black</button>
+        <button class="filter-pill" onclick="filterMedium('oil', this)">Classical Oil</button>
+        <button class="filter-pill" onclick="filterMedium('memorial', this)">Memorial Art</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section 2: Collection Product Showcase Grid -->
+  <section class="section-padding" style="padding-top: 30px;">
+    <div class="container">
+
+      <div class="collection-products-grid">
+
+        <!-- Product 1: Watercolor Portrait -->
+        <article class="product-artwork-card fade-in-up" data-category="watercolor">
+          <div class="product-img-wrapper">
+            <img src="assets/images/CATS.png"
+              alt="Custom Watercolor Pet Portrait">
+            <span class="product-medium-tag">Watercolor</span>
+            <span class="product-badge-turnaround"><i class="fa-regular fa-clock"></i> 2–3 Weeks</span>
+          </div>
+          <div class="product-card-body">
+            <div class="product-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(148 reviews)</span>
+            </div>
+            <h3 class="product-card-title">Custom Watercolor Pet Portrait</h3>
+            <p class="product-card-desc">Luminous, soft watercolor washes on 300gsm 100% cotton Arches paper. Celebrates
+              fur gradations and gentle eyes.</p>
+            <div class="product-card-footer">
+              <span class="product-price-display">From $249</span>
+              <a href="contact.html?style=watercolor" class="product-order-btn">Commission &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 2: Graphite Pencil Portrait -->
+        <article class="product-artwork-card fade-in-up" data-category="graphite" style="transition-delay: 100ms;">
+          <div class="product-img-wrapper">
+            <img src="assets/images/DOGS.png"
+              alt="Custom Graphite Pencil Pet Portrait">
+            <span class="product-medium-tag">Graphite Pencil</span>
+            <span class="product-badge-turnaround"><i class="fa-regular fa-clock"></i> 10–14 Days</span>
+          </div>
+          <div class="product-card-body">
+            <div class="product-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(94 reviews)</span>
+            </div>
+            <h3 class="product-card-title">Custom Graphite Pencil Portrait</h3>
+            <p class="product-card-desc">Delicate, hyper-realistic pencil sketch capturing every whisker, eye sparkle,
+              and subtle fur texture on heavy archival vellum.</p>
+            <div class="product-card-footer">
+              <span class="product-price-display">From $225</span>
+              <a href="contact.html?style=graphite" class="product-order-btn">Commission &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 3: White Pencil on Black Paper -->
+        <article class="product-artwork-card fade-in-up" data-category="white-pencil" style="transition-delay: 200ms;">
+          <div class="product-img-wrapper">
+            <img src="assets/images/Duke.png"
+              alt="Custom White Pencil on Black Paper Portrait">
+            <span class="product-medium-tag">White on Black</span>
+            <span class="product-badge-turnaround"><i class="fa-regular fa-clock"></i> 2 Weeks</span>
+          </div>
+          <div class="product-card-body">
+            <div class="product-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(67 reviews)</span>
+            </div>
+            <h3 class="product-card-title">White Pencil on Black Paper</h3>
+            <p class="product-card-desc">Dramatic, high-contrast chiaroscuro rendering on Stonehenge jet-black cotton
+              rag. Breathtaking depth and luminescence.</p>
+            <div class="product-card-footer">
+              <span class="product-price-display">From $235</span>
+              <a href="contact.html?style=whitepencil" class="product-order-btn">Commission &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 4: Classical Oil on Linen -->
+        <article class="product-artwork-card fade-in-up" data-category="oil">
+          <div class="product-img-wrapper">
+            <img src="assets/images/Luna.png"
+              alt="Custom Classical Oil on Linen Portrait">
+            <span class="product-medium-tag">Classical Oil</span>
+            <span class="product-badge-turnaround"><i class="fa-regular fa-clock"></i> 3–4 Weeks</span>
+          </div>
+          <div class="product-card-body">
+            <div class="product-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(215 reviews)</span>
+            </div>
+            <h3 class="product-card-title">Classical Oil on Linen Portrait</h3>
+            <p class="product-card-desc">Layered Renaissance glazing and rich impasto on stretched Belgian linen canvas.
+              Heirloom 100+ year museum longevity.</p>
+            <div class="product-card-footer">
+              <span class="product-price-display">From $495</span>
+              <a href="contact.html?style=oil" class="product-order-btn">Commission &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 5: Multi-Pet Commission -->
+        <article class="product-artwork-card fade-in-up" data-category="watercolor" style="transition-delay: 100ms;">
+          <div class="product-img-wrapper">
+            <img src="assets/images/Milo.png"
+              alt="Multi-Pet Duo and Trio Commission">
+            <span class="product-medium-tag">Multi-Pet Duo/Trio</span>
+            <span class="product-badge-turnaround"><i class="fa-regular fa-clock"></i> 3–4 Weeks</span>
+          </div>
+          <div class="product-card-body">
+            <div class="product-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(112 reviews)</span>
+            </div>
+            <h3 class="product-card-title">Multi-Pet Companion Portrait</h3>
+            <p class="product-card-desc">Combine individual snapshots of your dogs and cats into a single unified,
+              harmonized family artwork composition.</p>
+            <div class="product-card-footer">
+              <span class="product-price-display">From $395</span>
+              <a href="contact.html?style=multipet" class="product-order-btn">Commission &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Product 6: Memorial Tribute Art -->
+        <article class="product-artwork-card fade-in-up" data-category="memorial" style="transition-delay: 200ms;">
+          <div class="product-img-wrapper">
+            <img src="assets/images/Chloe.png"
+              alt="Memorial Tribute Pet Portrait">
+            <span class="product-medium-tag">Memorial Art</span>
+            <span class="product-badge-turnaround"><i class="fa-regular fa-clock"></i> 2–3 Weeks</span>
+          </div>
+          <div class="product-card-body">
+            <div class="product-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(183 reviews)</span>
+            </div>
+            <h3 class="product-card-title">Memorial Tribute Keepsake</h3>
+            <p class="product-card-desc">Gentle celestial lighting, optional golden halos, and personalized memorial
+              plaque to honor a departed companion.</p>
+            <div class="product-card-footer">
+              <span class="product-price-display">From $249</span>
+              <a href="contact.html?style=memorial" class="product-order-btn">Commission &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 3: Meet Artist Eleanor Vance (Atelier Story) -->
+  <section class="artist-story-section">
+    <div class="container">
+      <div class="artist-split-grid">
+        <div class="fade-in-up">
+          <img src="assets/images/artist-studio.jpg"
+            alt="Artist in Studio" class="artist-portrait-img">
+        </div>
+        <div class="fade-in-up" style="transition-delay: 150ms;">
+          <span class="collection-eyebrow">Behind the Brush</span>
+          <h2
+            style="font-family: var(--collection-serif); font-size: clamp(2rem, 3.5vw, 2.75rem); color: var(--text-color); margin-bottom: 16px;">
+            "Every animal has a soul worth celebrating in fine art."
+          </h2>
+          <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 16px;">
+            Welcome to the atelier! I specialize in capturing the nuanced expressions, the mischievous twinkle in the
+            eyes, and the quiet devotion of your furry companions.
+          </p>
+          <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 24px;">
+            Whether working in fluid translucent watercolors or rich classical oils, every portrait is hand-painted on
+            museum-grade archival surfaces with 100% devotion.
+          </p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+            <a href="about.html" class="btn btn-primary">Read Commission Process</a>
+            <a href="contact.html" class="btn btn-outline">Send Your Photos &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Verified Reviews -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="reviews-badge-header fade-in-up">
+        <span class="collection-eyebrow">Verified Collector Reviews</span>
+        <h2 style="font-family: var(--collection-serif); font-size: clamp(2rem, 4vw, 3rem); color: var(--text-color);">
+          Loved by Pet Parents Across the Globe
+        </h2>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px;">
+          <div style="color: #FFB800; font-size: 1.1rem;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <strong style="font-size: 1.05rem; color: var(--text-color);">5.0 / 5.0</strong>
+          <span style="color: var(--text-muted); font-size: 0.9rem;">based on 840+ verified reviews</span>
+        </div>
+      </div>
+
+      <div class="reviews-card-grid">
+        <div class="collection-review-card fade-in-up">
+          <div style="color: #FFB800; font-size: 0.85rem; margin-bottom: 8px;"><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i></div>
+          <h4 style="font-family: var(--collection-serif); font-size: 1.2rem; margin-bottom: 6px;">"Brought tears of pure
+            joy!"</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); font-style: italic; margin-bottom: 12px;">"The
+            watercolor portrait of our rescue dog Ollie arrived today and we couldn't stop staring. The fur details and
+            eye reflections look like magic."</p>
+          <strong style="font-size: 0.82rem; text-transform: uppercase; color: var(--text-color);">&mdash; Caroline M.
+            &bull; Verified Buyer</strong>
+        </div>
+
+        <div class="collection-review-card fade-in-up" style="transition-delay: 100ms;">
+          <div style="color: #FFB800; font-size: 0.85rem; margin-bottom: 8px;"><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i></div>
+          <h4 style="font-family: var(--collection-serif); font-size: 1.2rem; margin-bottom: 6px;">"The white pencil on
+            black paper is stunning"</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); font-style: italic; margin-bottom: 12px;">"Such a
+            dramatic, high-end piece. It is the first thing guests notice when walking into our dining room. Highly
+            recommend!"</p>
+          <strong style="font-size: 0.82rem; text-transform: uppercase; color: var(--text-color);">&mdash; Thomas K.
+            &bull; Verified Buyer</strong>
+        </div>
+
+        <div class="collection-review-card fade-in-up" style="transition-delay: 200ms;">
+          <div style="color: #FFB800; font-size: 0.85rem; margin-bottom: 8px;"><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i></div>
+          <h4 style="font-family: var(--collection-serif); font-size: 1.2rem; margin-bottom: 6px;">"A priceless tribute to
+            our Bella"</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); font-style: italic; margin-bottom: 12px;">"We lost
+            Bella last fall. Having this oil painting on our mantel brings us comfort every evening. The artist was so
+            compassionate throughout."</p>
+          <strong style="font-size: 0.82rem; text-transform: uppercase; color: var(--text-color);">&mdash; Michael &amp;
+            Sarah G. &bull; Verified Buyer</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner fade-in-up">
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <span class="collection-eyebrow"
+        style="color: #FAF7F2; background: rgba(255,255,255,0.18); padding: 4px 14px; border-radius: 20px;">Limited
+        Studio Commissions Available</span>
+      <h2 style="font-family: var(--collection-serif); font-size: clamp(2rem, 4vw, 3rem);">Commission Your Pet's Heirloom
+      </h2>
+      <p class="mb-6" style="max-width: 520px; color: rgba(255,255,255,0.92);">Upload your photos today for a free
+        composition and medium consultation.</p>
+      <a href="contact.html" class="btn btn-primary btn-lg">Request Custom Quote &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid fade-in-up">
+        <div style="text-align: inherit;">
+          <a href="index.html" class="logo">
+            <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+          </a>
+          <p class="footer-desc">Bespoke fine art pet portraiture honoring loyal companions worldwide. Hand-crafted in
+            watercolor, graphite, white pencil, and oil since 2012.</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon pinterest" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" class="social-icon youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Studio Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home2.html">Home 2</a></li>
+            <li><a href="services.html">Portfolio by Medium</a></li>
+            <li><a href="about.html">Commission Process</a></li>
+            <li><a href="pricing.html">Pricing &amp; Sizes</a></li>
+            <li><a href="contact.html">Request a Portrait</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Artistic Mediums</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#watercolor">Luminous Watercolor</a></li>
+            <li><a href="services.html#graphite">Graphite Pencil Sketch</a></li>
+            <li><a href="services.html#white-pencil">White Pencil on Black</a></li>
+            <li><a href="services.html#oil">Classical Oil on Linen</a></li>
+            <li><a href="services.html#memorial">Memorial Artworks</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Atelier Updates</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Receive studio release
+            announcements, framing guides, and pet art stories.</p>
+          <form class="newsletter-form">
+            <input type="email" class="form-control" placeholder="Your email address" required>
+            <button type="submit" class="btn btn-primary" style="padding: 12px 18px;"
+              aria-label="Subscribe">&rarr;</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom fade-in-up">
+        <p>&copy; 2026 PawVinci Atelier. Custom Pet Portrait Artist Studio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <script src="assets/js/main.js"></script>
+
+  <!-- Interactive Filter Script for Collection -->
+  <script>
+    function filterMedium(category, btn) {
+      document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.product-artwork-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

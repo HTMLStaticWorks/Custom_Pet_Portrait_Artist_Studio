@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawVinci &times; Peternity | Custom Hand-Painted Pet Portraits</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="description" content="Turn your favorite pet photo into a beautiful custom hand-painted portrait. Free tracked shipping, unlimited revisions, and 100% love guarantee.">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <style>
+    :root {
+      --peternity-accent: #C46849;
+      --peternity-dark: #1E1A18;
+      --peternity-green: #00B67A;
+      --peternity-star: #FFB800;
+      --peternity-soft: #FCF8F5;
+      --peternity-border: #EFE4DC;
+    }
+
+    /* Top Announcement Ribbon */
+    .announcement-bar {
+      background: #C46849;
+      color: #fff;
+      padding: 8px 16px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+      position: relative;
+      z-index: 1001;
+    }
+
+    /* Peternity Layout */
+    .customizer-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+    }
+
+    .customizer-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    @media (max-width: 992px) {
+      .customizer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    /* Gallery Showcase (Left) */
+    .gallery-main-frame {
+      position: sticky;
+      top: 100px;
+    }
+
+    .main-portrait-img-box {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
+      position: relative;
+    }
+
+    .main-portrait-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease, transform 0.4s ease;
+    }
+
+    .gallery-thumbnails-strip {
+      display: flex;
+      gap: 12px;
+      margin-top: 14px;
+      overflow-x: auto;
+      padding: 4px 2px 10px;
+      scrollbar-width: thin;
+    }
+
+    .thumb-btn {
+      width: 72px;
+      height: 72px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      flex-shrink: 0;
+      background: var(--surface-color);
+      padding: 0;
+      transition: all 0.2s ease;
+      opacity: 0.65;
+    }
+
+    .thumb-btn.active {
+      border-color: var(--primary);
+      opacity: 1;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(196, 104, 73, 0.25);
+    }
+
+    .thumb-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Customizer Form Area (Right) */
+    .product-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      color: var(--text-color);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .rating-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+
+    .trustpilot-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--peternity-green);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .price-strip {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin: 16px 0 20px;
+    }
+
+    .current-price {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--text-color);
+      font-family: var(--font-body);
+    }
+
+    .original-price {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .discount-pill {
+      background: #FF7B7B;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Step Selector Cards */
+    .selector-block {
+      margin-bottom: 24px;
+    }
+
+    .selector-label {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-color);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .options-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .option-card-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 2px solid var(--border-color);
+      background: var(--surface-color);
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .option-card-btn:hover {
+      border-color: var(--primary);
+    }
+
+    .option-card-btn.active {
+      border-color: var(--text-color);
+      background: var(--peternity-soft);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    .option-card-btn .check-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid var(--border-color);
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: transparent;
+      flex-shrink: 0;
+    }
+
+    .option-card-btn.active .check-circle {
+      background: var(--text-color);
+      border-color: var(--text-color);
+      color: #fff;
+    }
+
+    .option-thumb {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .option-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-color);
+      display: block;
+    }
+
+    .option-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    /* Size Vertical List */
+    .sizes-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .size-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 2px solid var(--border-color);
+      background: var(--surface-color);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .size-btn:hover {
+      border-color: var(--primary);
+    }
+
+    .size-btn.active {
+      border-color: var(--text-color);
+      background: var(--peternity-soft);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    .size-badge-pop {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-left: 8px;
+    }
+
+    /* Action CTA */
+    .cta-submit-btn {
+      width: 100%;
+      padding: 16px 24px;
+      background: var(--text-color);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .cta-submit-btn:hover {
+      background: #3D332F;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+    }
+
+    .delivery-eta-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--peternity-soft);
+      border: 1px solid var(--peternity-border);
+      padding: 10px 16px;
+      border-radius: 10px;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Feature Pillars */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+    }
+
+    .pillar-item i {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .pillar-item span {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-color);
+      letter-spacing: 0.5px;
+    }
+
+    /* Quote Banner */
+    .client-quote-bubble {
+      background: var(--peternity-soft);
+      border: 1px solid var(--peternity-border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .quote-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid #fff;
+    }
+
+    /* Accordions */
+    .peternity-accordion-item {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .peternity-accordion-header {
+      width: 100%;
+      padding: 16px 0;
+      background: none;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-color);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .peternity-accordion-body {
+      display: none;
+      padding-bottom: 16px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .peternity-accordion-body.open {
+      display: block;
+    }
+
+    /* Video / Reel Showcase Section */
+    .video-reels-strip {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      padding: 20px 0 30px;
+      scrollbar-width: thin;
+      snap-type: x mandatory;
+    }
+
+    .reel-card {
+      min-width: 240px;
+      height: 380px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+      snap-align: start;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+      border: 3px solid #fff;
+    }
+
+    .reel-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .reel-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .reel-badge-tag {
+      position: absolute;
+      bottom: 16px;
+      left: 14px;
+      right: 14px;
+      background: rgba(30, 26, 24, 0.85);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement-bar">
+    <span>✦ Custom Pet Portrait Commissions &bull; Handcrafted in USA &bull; 100% Satisfaction Guarantee ✦</span>
+  </div>
+
+  <!-- Drawer Nav -->
+  <div class="drawer-overlay"></div>
+  <nav class="nav-drawer">
+    <button class="drawer-close" aria-label="Close menu">&times;</button>
+    <div class="drawer-links">
+      <a href="index.html">Home</a>
+      <a href="home2.html" class="active">Home 2</a>
+      <a href="services.html">Portfolios</a>
+      <a href="about.html">Process</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Journal</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="drawer-actions">
+      <div class="drawer-toggles">
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
+            class="fa-solid fa-right-left"></i></button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
+            class="fa-solid fa-moon"></i></button>
+      </div>
+      <a href="contact.html" class="btn btn-primary btn-full">Commission Art</a>
+    </div>
+  </nav>
+
+  <!-- Main Nav -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="home2.html" class="active">Home 2</a>
+        <a href="services.html">Portfolios</a>
+        <a href="about.html">Process</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blog.html">Journal</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary btn-nav">Commission Art</a>
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
+            class="fa-solid fa-right-left"></i></button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
+            class="fa-solid fa-moon"></i></button>
+      </div>
+      <button class="hamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- Main Interactive Product Customizer Section -->
+  <section id="customizer-section" class="customizer-container">
+    <div class="customizer-grid">
+
+      <!-- Left Column: Gallery Carousel with Thumbnails -->
+      <div class="gallery-main-frame">
+        <div class="main-portrait-img-box">
+          <img id="main-gallery-view" src="assets/images/classic-wood-frame.jpg" alt="Custom Pet Portrait Master View">
+          <span style="position: absolute; top: 16px; left: 16px; background: rgba(30,26,24,0.85); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">
+            <i class="fa-solid fa-shield-heart" style="color: var(--primary);"></i> 100% Hand-Painted Likeness
+          </span>
+        </div>
+
+        <div class="gallery-thumbnails-strip">
+          <button class="thumb-btn active" onclick="switchGalleryImg('assets/images/classic-wood-frame.jpg', this)">
+            <img src="assets/images/classic-wood-frame.jpg" alt="Thumb 1">
+          </button>
+          <button class="thumb-btn" onclick="switchGalleryImg('assets/images/matted-box-frame.jpg', this)">
+            <img src="assets/images/matted-box-frame.jpg" alt="Thumb 2">
+          </button>
+          <button class="thumb-btn" onclick="switchGalleryImg('assets/images/artist-studio.jpg', this)">
+            <img src="assets/images/artist-studio.jpg" alt="Thumb 3">
+          </button>
+          <button class="thumb-btn" onclick="switchGalleryImg('assets/images/Luna.png', this)">
+            <img src="assets/images/Luna.png" alt="Thumb 4">
+          </button>
+          <button class="thumb-btn" onclick="switchGalleryImg('assets/images/FOREVER HOME.png', this)">
+            <img src="assets/images/FOREVER HOME.png" alt="Thumb 5">
+          </button>
+        </div>
+
+        <!-- Trust Note Under Gallery -->
+        <div style="margin-top: 14px; font-size: 0.88rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-comments" style="color: #25D366; font-size: 1.1rem;"></i>
+          <span>See your artwork proof first, then approve with <strong>unlimited revisions</strong>.</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Step-by-Step Customizer -->
+      <div>
+        <div class="rating-row">
+          <div style="color: var(--peternity-star); display: flex; gap: 2px;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <span class="trustpilot-badge"><i class="fa-solid fa-star"></i> 4.9 Trustpilot</span>
+          <span style="color: var(--text-muted); font-size: 0.85rem;">(1,378+ Happy Pet Parents)</span>
+        </div>
+
+        <h1 class="product-headline">Custom Pet Portrait</h1>
+        <p style="color: var(--text-muted); font-size: 0.98rem; margin-bottom: 8px;">Turn your favorite pet snapshot into an everlasting hand-painted masterpiece.</p>
+
+        <div class="price-strip">
+          <span class="current-price" id="display-price">$249</span>
+          <span class="original-price" id="display-strike">$355</span>
+          <span class="discount-pill">30% OFF ATELIER LAUNCH</span>
+        </div>
+
+        <!-- 1. Choose Portrait Style -->
+        <div class="selector-block">
+          <label class="selector-label">1. Choose Your Portrait Style</label>
+          <div class="options-grid-2">
+            <div class="option-card-btn active" id="style-framed" onclick="selectStyle('framed', 0)">
+              <img src="assets/images/classic-wood-frame.jpg" alt="Framed Style" class="option-thumb">
+              <div>
+                <span class="option-title">Framed Portrait</span>
+                <span class="option-sub">Ready to Hang &bull; Solid Wood</span>
+              </div>
+              <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+            </div>
+
+            <div class="option-card-btn" id="style-canvas" onclick="selectStyle('canvas', 50)">
+              <img src="assets/images/matted-box-frame.jpg" alt="Canvas Style" class="option-thumb">
+              <div>
+                <span class="option-title">Linen Canvas</span>
+                <span class="option-sub">Gallery Wrapped &bull; Premium</span>
+              </div>
+              <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Choose Your Size -->
+        <div class="selector-block">
+          <label class="selector-label">2. Choose Your Size</label>
+          <div class="sizes-stack">
+            <div class="size-btn active" id="size-8x10" onclick="selectSize('8x10', 249)">
+              <div>
+                <strong style="font-size: 1rem; color: var(--text-color);">8" &times; 10" (Mini Keepsake)</strong>
+                <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Perfect for desks, bookshelves & gallery clusters</span>
+              </div>
+              <strong style="color: var(--primary);">$249</strong>
+            </div>
+
+            <div class="size-btn" id="size-12x16" onclick="selectSize('12x16', 495)">
+              <div>
+                <strong style="font-size: 1rem; color: var(--text-color);">12" &times; 16" (Classic Heirloom)</strong>
+                <span class="size-badge-pop">⭐ Most Popular</span>
+                <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Our flagship living room & bedroom statement</span>
+              </div>
+              <strong style="color: var(--primary);">$495</strong>
+            </div>
+
+            <div class="size-btn" id="size-18x24" onclick="selectSize('18x24', 895)">
+              <div>
+                <strong style="font-size: 1rem; color: var(--text-color);">18" &times; 24" (Grand Masterpiece)</strong>
+                <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Statement focal point for mantels and dining rooms</span>
+              </div>
+              <strong style="color: var(--primary);">$895</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Number of Pets -->
+        <div class="selector-block">
+          <label class="selector-label">3. Number of Pets in Portrait</label>
+          <div class="options-grid-2">
+            <div class="option-card-btn active" id="pets-1" onclick="selectPets(1, 0)">
+              <div class="card-icon" style="font-size: 1.3rem; margin: 0;"><i class="fa-solid fa-dog"></i></div>
+              <div>
+                <span class="option-title">1 Pet</span>
+                <span class="option-sub">Included</span>
+              </div>
+              <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+            </div>
+
+            <div class="option-card-btn" id="pets-2" onclick="selectPets(2, 95)">
+              <div class="card-icon" style="font-size: 1.3rem; margin: 0;"><i class="fa-solid fa-paw"></i></div>
+              <div>
+                <span class="option-title">2 Pets (Duo)</span>
+                <span class="option-sub">+$95</span>
+              </div>
+              <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+            </div>
+
+            <div class="option-card-btn" id="pets-3" onclick="selectPets(3, 190)">
+              <div class="card-icon" style="font-size: 1.3rem; margin: 0;"><i class="fa-solid fa-heart"></i></div>
+              <div>
+                <span class="option-title">3 Pets (Trio)</span>
+                <span class="option-sub">+$190</span>
+              </div>
+              <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+            </div>
+
+            <div class="option-card-btn" id="pets-4" onclick="selectPets(4, 285)">
+              <div class="card-icon" style="font-size: 1.3rem; margin: 0;"><i class="fa-solid fa-crown"></i></div>
+              <div>
+                <span class="option-title">4+ Pets (Family)</span>
+                <span class="option-sub">+$285</span>
+              </div>
+              <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo & Order Trigger -->
+        <a href="contact.html" class="cta-submit-btn">
+          Continue & Upload Photo <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <div class="delivery-eta-box">
+          <i class="fa-solid fa-truck-fast" style="color: var(--primary);"></i>
+          <span>Order today &bull; Estimated Proof & Delivery by: <strong id="dynamic-eta" style="color: var(--text-color);">Calculating...</strong></span>
+        </div>
+
+        <!-- 3 Core Guarantees -->
+        <div class="pillars-grid">
+          <div class="pillar-item">
+            <i class="fa-solid fa-rotate-left"></i>
+            <span>Unlimited<br>Revisions</span>
+          </div>
+          <div class="pillar-item">
+            <i class="fa-solid fa-box"></i>
+            <span>Free Tracked<br>Shipping</span>
+          </div>
+          <div class="pillar-item">
+            <i class="fa-solid fa-shield-heart"></i>
+            <span>100% Love<br>Guarantee</span>
+          </div>
+        </div>
+
+        <!-- Live Review Bubble -->
+        <div class="client-quote-bubble">
+          <img src="assets/images/Elena Rostova.png" alt="Client Vaidehi" class="quote-avatar">
+          <div>
+            <div style="color: var(--peternity-star); font-size: 0.75rem; margin-bottom: 2px;">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-color); margin: 0; font-style: italic;">"Didn't think I'd get emotional over a portrait... but Eleanor captured him so perfectly. My whole family fell in love instantly."</p>
+            <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">&mdash; Vaidehi S., Verified Pet Parent</span>
+          </div>
+        </div>
+
+        <!-- Accordions -->
+        <div style="margin-top: 24px;">
+          
+          <div class="peternity-accordion-item">
+            <button class="peternity-accordion-header" onclick="toggleAcc(this)">
+              <span><i class="fa-solid fa-paintbrush" style="color: var(--primary); margin-right: 8px;"></i> Artwork & Technique Details</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="peternity-accordion-body">
+              Every portrait is painted by master artist Eleanor Vance using lightfast pigments, archival canvas or Arches cotton rag, and UV protective varnish. We provide digital previews before sealing and shipping.
+            </div>
+          </div>
+
+          <div class="peternity-accordion-item">
+            <button class="peternity-accordion-header" onclick="toggleAcc(this)">
+              <span><i class="fa-solid fa-truck" style="color: var(--primary); margin-right: 8px;"></i> Shipping & Packaging</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="peternity-accordion-body">
+              All portraits are safely nestled in protective glassine wrap, reinforced corner cushions, and heavy duty presentation cartons. Shipped insured with full tracking.
+            </div>
+          </div>
+
+          <div class="peternity-accordion-item">
+            <button class="peternity-accordion-header" onclick="toggleAcc(this)">
+              <span><i class="fa-solid fa-heart" style="color: var(--primary); margin-right: 8px;"></i> 100% Love It Guarantee</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="peternity-accordion-body">
+              If you aren't completely thrilled with the final digital proof, we provide unlimited touch-ups or a full refund before printing.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Video Reaction & Showcase Reel Section (Like Peternity) -->
+  <section class="section-padding" style="background: var(--peternity-soft); border-top: 1px solid var(--peternity-border); border-bottom: 1px solid var(--peternity-border);">
+    <div class="container">
+      <div class="text-center fade-in-up mb-6">
+        <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase;">
+          Pet Portraits <span style="color: var(--primary);">&gt;</span> Ordinary Gifts 😍
+        </h2>
+        <p style="color: var(--text-muted); font-size: 10.5rem; max-width: 600px; margin: 0 auto; font-size: 1.05rem;">
+          Because the companions we love deserve something timeless that celebrates their spirit every single day.
+        </p>
+      </div>
+
+      <div class="video-reels-strip fade-in-up">
+        
+        <div class="reel-card">
+          <img src="assets/images/Bella.png" alt="Customer unboxing video reel">
+          <div class="reel-badge-tag">
+            <span>"Tears of pure happiness! ❤️"</span>
+          </div>
+        </div>
+
+        <div class="reel-card">
+          <img src="assets/images/Oliver.png" alt="Two dogs portrait">
+          <div class="reel-badge-tag">
+            <span>"Captured their brotherhood perfectly"</span>
+          </div>
+        </div>
+
+        <div class="reel-card">
+          <img src="assets/images/KITTENS.png" alt="Cat portrait unboxing">
+          <div class="reel-badge-tag">
+            <span>"Luna approves her masterpiece! 🐾"</span>
+          </div>
+        </div>
+
+        <div class="reel-card">
+          <img src="assets/images/A REAL CONNECTION.png" alt="Golden retriever portrait">
+          <div class="reel-badge-tag">
+            <span>"The eyes look so alive!"</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works in 3 Simple Steps -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center fade-in-up mb-8">
+        <span class="gallery-tag-pill">Simple Experience</span>
+        <h2 class="text-primary">How Peternity Works</h2>
+        <p style="max-width: 600px; margin: 0 auto;">From smartphone snapshot to gallery-worthy heirloom in three simple steps.</p>
+      </div>
+
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <div class="card fade-in-up" style="text-align: center;">
+          <div class="card-icon" style="margin: 0 auto 16px;"><i class="fa-solid fa-camera"></i></div>
+          <h3 class="card-title">1. Upload Favorite Photo</h3>
+          <p>Pick a favorite photo from your phone camera roll. Any good daylight shot will work.</p>
+        </div>
+
+        <div class="card fade-in-up" style="text-align: center; transition-delay: 100ms;">
+          <div class="card-icon" style="margin: 0 auto 16px;"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3 class="card-title">2. Painted with Devotion</h3>
+          <p>Eleanor illustrates every detail and sends you a high-definition digital proof for your approval.</p>
+        </div>
+
+        <div class="card fade-in-up" style="text-align: center; transition-delay: 200ms;">
+          <div class="card-icon" style="margin: 0 auto 16px;"><i class="fa-solid fa-gift"></i></div>
+          <h3 class="card-title">3. Printed, Framed & Delivered</h3>
+          <p>Crafted on museum archival cotton canvas and delivered safely right to your front door.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid fade-in-up">
+        <div style="text-align: inherit;">
+          <a href="index.html" class="logo">
+            <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+          </a>
+          <p class="footer-desc">Bespoke fine art pet portraiture honoring loyal companions worldwide. Hand-crafted in oil, watercolor, and digital Giclée since 2012.</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon pinterest" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" class="social-icon youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Studio Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home2.html">Home 2</a></li>
+            <li><a href="services.html">Portfolio by Medium</a></li>
+            <li><a href="about.html">Commission Process</a></li>
+            <li><a href="pricing.html">Pricing & Sizes</a></li>
+            <li><a href="contact.html">Request a Portrait</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Artistic Mediums</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#oil">Classical Oil on Linen</a></li>
+            <li><a href="services.html#watercolor">Luminous Watercolor</a></li>
+            <li><a href="services.html#digital">Fine Art Digital Giclée</a></li>
+            <li><a href="services.html#charcoal">Charcoal & Graphite</a></li>
+            <li><a href="services.html#memorial">Memorial Portraits</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Atelier Updates</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Receive studio release announcements, framing guides, and pet art stories.</p>
+          <form class="newsletter-form">
+            <input type="email" class="form-control" placeholder="Your email address" required>
+            <button type="submit" class="btn btn-primary" style="padding: 12px 18px;" aria-label="Subscribe">&rarr;</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom fade-in-up">
+        <p>&copy; 2026 PawVinci Atelier &times; Peternity. Custom Pet Portrait Artist Studio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <script src="assets/js/main.js"></script>
+
+  <!-- Interactive Peternity Calculator & Gallery Script -->
+  <script>
+    let basePrice = 249;
+    let styleExtra = 0;
+    let petsExtra = 0;
+
+    function updatePrice() {
+      const total = basePrice + styleExtra + petsExtra;
+      const strike = Math.round(total * 1.42);
+      document.getElementById('display-price').innerText = '$' + total;
+      document.getElementById('display-strike').innerText = '$' + strike;
+    }
+
+    function switchGalleryImg(url, btn) {
+      document.getElementById('main-gallery-view').src = url;
+      document.querySelectorAll('.thumb-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function selectStyle(type, extra) {
+      styleExtra = extra;
+      document.querySelectorAll('.selector-block:nth-of-type(1) .option-card-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('style-' + type).classList.add('active');
+      updatePrice();
+    }
+
+    function selectSize(sizeKey, price) {
+      basePrice = price;
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('size-' + sizeKey).classList.add('active');
+      updatePrice();
+    }
+
+    function selectPets(count, extra) {
+      petsExtra = extra;
+      document.querySelectorAll('.selector-block:nth-of-type(3) .option-card-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('pets-' + count).classList.add('active');
+      updatePrice();
+    }
+
+    function toggleAcc(header) {
+      const body = header.nextElementSibling;
+      const icon = header.querySelector('.fa-chevron-down, .fa-chevron-up');
+      if (body.classList.contains('open')) {
+        body.classList.remove('open');
+        if (icon) icon.className = 'fa-solid fa-chevron-down';
+      } else {
+        body.classList.add('open');
+        if (icon) icon.className = 'fa-solid fa-chevron-up';
+      }
+    }
+
+    // Dynamic Delivery Date
+    document.addEventListener('DOMContentLoaded', () => {
+      const etaEl = document.getElementById('dynamic-eta');
+      if (etaEl) {
+        const d = new Date();
+        d.setDate(d.getDate() + 12);
+        const options = { month: 'short', day: 'numeric', year: 'numeric' };
+        etaEl.innerText = d.toLocaleDateString('en-US', options);
+      }
+    });
+  </script>
+</body>
+
+</html>

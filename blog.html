@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawVinci Atelier | Journal & Pet Artistry Stories</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="description" content="Articles, framing advice, and photo tips from custom pet portrait artist Eleanor Vance. Learn how to capture and preserve your pet's legacy.">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <style>
+    .gallery-tag-pill {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      background: rgba(196, 104, 73, 0.12);
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .blog-card {
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      border-color: var(--card-hover-border);
+    }
+    .blog-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .blog-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .blog-meta-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+
+<body>
+ 
+   <!-- Top Announcement Bar -->
+   <div class="top-announcement-bar">
+    <span>✦ Custom Pet Portrait Commissions &bull; Handcrafted in USA &bull; 100% Satisfaction Guarantee ✦</span>
+  </div>
+
+  <!-- Drawer Nav -->
+  <div class="drawer-overlay"></div>
+  <nav class="nav-drawer">
+    <button class="drawer-close" aria-label="Close menu">&times;</button>
+    <div class="drawer-links">
+      <a href="index.html">Home</a>
+      <a href="home2.html">Home 2</a>
+      <a href="services.html">Portfolios</a>
+      <a href="about.html">Process</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html" class="active">Journal</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="drawer-actions">
+      <div class="drawer-toggles">
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
+            class="fa-solid fa-right-left"></i></button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
+            class="fa-solid fa-moon"></i></button>
+      </div>
+      <a href="contact.html" class="btn btn-primary btn-full">Commission Art</a>
+    </div>
+  </nav>
+
+  <!-- Main Nav -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="home2.html">Home 2</a>
+        <a href="services.html">Portfolios</a>
+        <a href="about.html">Process</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blog.html" class="active">Journal</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary btn-nav">Commission Art</a>
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
+            class="fa-solid fa-right-left"></i></button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
+            class="fa-solid fa-moon"></i></button>
+      </div>
+      <button class="hamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- Section 1: Hero -->
+  <section class="hero"
+    style="background: linear-gradient(135deg, rgba(14, 14, 28, 0.85) 0%, rgba(26, 26, 46, 0.75) 100%),
+           url('assets/images/hero.jpg') center/cover no-repeat;
+           min-height: 420px; height: 45vh; display: flex; align-items: center;">
+    <div class="container">
+      <div class="hero-content" style="max-width: 700px; margin: 0 auto; text-align: center;">
+        <span class="gallery-tag-pill" style="background: rgba(196, 104, 73, 0.25); color: #F2B29B; margin-bottom: 12px;">The Atelier Journal</span>
+        <h1 class="fade-in-up" style="transition-delay: 150ms;">Stories & Guides</h1>
+        <p class="fade-in-up" style="transition-delay: 300ms; font-size: 1.15rem; color: #FAF6F0;">
+          Artist tips on photo selection, medium comparisons, and caring for your custom hand-painted heirlooms.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Articles Grid -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;">
+
+        <!-- Article 1 -->
+        <article class="card blog-card fade-in-up">
+          <img src="assets/images/artist-studio.jpg" alt="Pet Photography Guide" class="blog-img">
+          <div class="blog-body">
+            <div class="blog-meta-badge">Photo Tips &bull; 5 Min Read</div>
+            <h3 class="card-title" style="font-size: 1.3rem;">How to Capture Great Reference Photos with Your Phone</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 18px; flex-grow: 1;">
+              Discover simple techniques for using natural window light, eye-level camera angles, and high shutter speeds to get razor-sharp reference photos of dogs and cats.
+            </p>
+            <a href="contact.html" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.85rem; width: fit-content;">Read Article &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="card blog-card fade-in-up" style="transition-delay: 100ms;">
+          <img src="assets/images/classic-wood-frame.jpg" alt="Oil vs Watercolor Mediums" class="blog-img">
+          <div class="blog-body">
+            <div class="blog-meta-badge">Medium Analysis &bull; 6 Min Read</div>
+            <h3 class="card-title" style="font-size: 1.3rem;">Oil vs. Watercolor: Which Medium Fits Your Pet's Spirit?</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 18px; flex-grow: 1;">
+              Comparing the rich textural grandeur of Renaissance-style oil on linen versus the soft, ethereal translucency of cotton paper watercolor.
+            </p>
+            <a href="services.html" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.85rem; width: fit-content;">Read Article &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="card blog-card fade-in-up" style="transition-delay: 200ms;">
+          <img src="assets/images/Chloe.png" alt="Memorial Pet Portrait Tribute" class="blog-img">
+          <div class="blog-body">
+            <div class="blog-meta-badge">Memorial Tributes &bull; 4 Min Read</div>
+            <h3 class="card-title" style="font-size: 1.3rem;">Memorial Portraits: Honoring a Beloved Companion</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 18px; flex-grow: 1;">
+              How a custom tribute artwork can bring comfort, healing, and a peaceful physical presence to pet parents navigating the loss of a furry family member.
+            </p>
+            <a href="about.html" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.85rem; width: fit-content;">Read Article &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Article 4 -->
+        <article class="card blog-card fade-in-up">
+          <img src="assets/images/matted-box-frame.jpg" alt="Art Conservation and Framing" class="blog-img">
+          <div class="blog-body">
+            <div class="blog-meta-badge">Conservation &bull; 5 Min Read</div>
+            <h3 class="card-title" style="font-size: 1.3rem;">Framing & Caring for Your Hand-Painted Canvas</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 18px; flex-grow: 1;">
+              Essential conservation tips: choosing between floating frames and glass mats, avoiding direct UV sunlight, and gentle dusting techniques for oil varnish.
+            </p>
+            <a href="pricing.html" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.85rem; width: fit-content;">Read Article &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Article 5 -->
+        <article class="card blog-card fade-in-up" style="transition-delay: 100ms;">
+          <img src="assets/images/ENDLESS JOY.png" alt="Multi-Pet Art Compositions" class="blog-img">
+          <div class="blog-body">
+            <div class="blog-meta-badge">Behind the Easel &bull; 4 Min Read</div>
+            <h3 class="card-title" style="font-size: 1.3rem;">Harmonizing Multiple Pets from Separate Photos</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 18px; flex-grow: 1;">
+              How Eleanor digitally balances lighting, relative scale, and eye contact from multiple disparate snapshots into one unified family portrait.
+            </p>
+            <a href="about.html" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.85rem; width: fit-content;">Read Article &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Article 6 -->
+        <article class="card blog-card fade-in-up" style="transition-delay: 200ms;">
+          <img src="assets/images/UNCONDITIONAL LOVE.png" alt="Equine & Exotic Pet Portraits" class="blog-img">
+          <div class="blog-body">
+            <div class="blog-meta-badge">Equine & Exotic &bull; 5 Min Read</div>
+            <h3 class="card-title" style="font-size: 1.3rem;">Equine Portraits: Capturing the Majesty of Horses</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 18px; flex-grow: 1;">
+              An intimate look into painting equestrian companions—capturing muscular anatomy, coat gleam, and noble head carriage on grand statement canvas.
+            </p>
+            <a href="services.html" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.85rem; width: fit-content;">Read Article &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner fade-in-up">
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <h2>Have a Question for the Artist?</h2>
+      <p class="mb-6" style="max-width: 500px; color: rgba(255,255,255,0.92);">Reach out to Eleanor Vance for personalized recommendations or advice regarding your pet's photos.</p>
+      <a href="contact.html" class="btn" style="background: var(--primary); color: #fff; font-weight: 600;">Contact Eleanor &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid fade-in-up">
+        <div style="text-align: inherit;">
+          <a href="index.html" class="logo">
+            <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+          </a>
+          <p class="footer-desc">Bespoke fine art pet portraiture honoring loyal companions worldwide. Hand-crafted in oil, watercolor, and digital Giclée since 2012.</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon pinterest" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" class="social-icon youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Studio Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home2.html">Home 2</a></li>
+            <li><a href="services.html">Portfolio by Medium</a></li>
+            <li><a href="about.html">Commission Process</a></li>
+            <li><a href="pricing.html">Pricing & Sizes</a></li>
+            <li><a href="contact.html">Request a Portrait</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Artistic Mediums</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#oil">Classical Oil on Linen</a></li>
+            <li><a href="services.html#watercolor">Luminous Watercolor</a></li>
+            <li><a href="services.html#digital">Fine Art Digital Giclée</a></li>
+            <li><a href="services.html#charcoal">Charcoal & Graphite</a></li>
+            <li><a href="services.html#memorial">Memorial Portraits</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Atelier Updates</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Receive studio release announcements, framing guides, and pet art stories.</p>
+          <form class="newsletter-form">
+            <input type="email" class="form-control" placeholder="Your email address" required>
+            <button type="submit" class="btn btn-primary" style="padding: 12px 18px;" aria-label="Subscribe">&rarr;</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom fade-in-up">
+        <p>&copy; 2026 PawVinci Atelier. Custom Pet Portrait Artist Studio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
+

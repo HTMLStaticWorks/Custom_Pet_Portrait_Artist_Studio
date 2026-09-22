@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawVinci Atelier | Custom Commission Request & Contact</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="description" content="Request a custom fine art pet portrait commission. Fill out our detailed commission request form with your pet's photo and preferences.">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <style>
+    .gallery-tag-pill {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      background: rgba(196, 104, 73, 0.12);
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    .form-select, select.form-control {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background-color: var(--surface-color);
+      color: var(--text-color);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-select:focus, select.form-control:focus {
+      border-color: var(--primary);
+    }
+    .contact-info-card {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-info-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+    .contact-info-item:last-child {
+      margin-bottom: 0;
+    }
+    .contact-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(196, 104, 73, 0.12);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+    .map-frame-wrapper {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      margin-bottom: 14px;
+      background: #EFECE6;
+    }
+    .map-frame-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .social-links-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .social-btn-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-color);
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.25s ease;
+    }
+    .social-btn-card:hover {
+      background: var(--surface-color);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(196, 104, 73, 0.15);
+    }
+    .social-btn-card i {
+      font-size: 1.15rem;
+    }
+    .social-btn-card.instagram i { color: #E1306C; }
+    .social-btn-card.facebook i { color: #1877F2; }
+    .social-btn-card.pinterest i { color: #E60023; }
+    .social-btn-card.youtube i { color: #FF0000; }
+  </style>
+</head>
+
+<body>
+ 
+   <!-- Top Announcement Bar -->
+   <div class="top-announcement-bar">
+    <span>✦ Custom Pet Portrait Commissions &bull; Handcrafted in USA &bull; 100% Satisfaction Guarantee ✦</span>
+  </div>
+
+  <!-- Drawer Nav -->
+  <div class="drawer-overlay"></div>
+  <nav class="nav-drawer">
+    <button class="drawer-close" aria-label="Close menu">&times;</button>
+    <div class="drawer-links">
+      <a href="index.html">Home</a>
+      <a href="home2.html">Home 2</a>
+      <a href="services.html">Portfolios</a>
+      <a href="about.html">Process</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Journal</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+    <div class="drawer-actions">
+      <div class="drawer-toggles">
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
+            class="fa-solid fa-right-left"></i></button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
+            class="fa-solid fa-moon"></i></button>
+      </div>
+      <a href="contact.html" class="btn btn-primary btn-full">Commission Art</a>
+    </div>
+  </nav>
+
+  <!-- Main Nav -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="home2.html">Home 2</a>
+        <a href="services.html">Portfolios</a>
+        <a href="about.html">Process</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blog.html">Journal</a>
+        <a href="contact.html" class="active">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary btn-nav">Commission Art</a>
+        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
+            class="fa-solid fa-right-left"></i></button>
+        <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
+            class="fa-solid fa-moon"></i></button>
+      </div>
+      <button class="hamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- Section 1: Hero -->
+  <section class="hero"
+    style="background: linear-gradient(135deg, rgba(14, 14, 28, 0.85) 0%, rgba(26, 26, 46, 0.75) 100%),
+           url('assets/images/hero.jpg') center/cover no-repeat;
+           min-height: 420px; height: 45vh; display: flex; align-items: center;">
+    <div class="container">
+      <div class="hero-content" style="max-width: 700px; margin: 0 auto; text-align: center;">
+        <span class="gallery-tag-pill" style="background: rgba(196, 104, 73, 0.25); color: #F2B29B; margin-bottom: 12px;">Bespoke Art Inquiry</span>
+        <h1 class="fade-in-up" style="transition-delay: 150ms;">Commission Request Form</h1>
+        <p class="fade-in-up" style="transition-delay: 300ms; font-size: 1.15rem; color: #FAF6F0;">
+          Share your pet's photos, medium preferences, and vision. Eleanor Vance will personally review your request within 24 hours.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Contact Form & Info -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Form Area (Left) -->
+        <div class="fade-in-up"
+          style="background: var(--surface-color); padding: var(--spacing-6); border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.04);">
+          <span class="gallery-tag-pill">Step 1 of Consultation</span>
+          <h2 class="mb-4" style="font-size: 1.85rem;">Custom Portrait Request</h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;">Please fill in the details below. We will reply with composition guidance and custom quote options.</p>
+          
+          <form id="contact-form">
+            
+            <!-- Parent Info -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name" class="form-label">Your Full Name *</label>
+                <input type="text" id="name" class="form-control" placeholder="e.g. Eleanor Rigby" required>
+                <span class="error-msg" id="name-error">Please enter your full name.</span>
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address *</label>
+                <input type="email" id="email" class="form-control" placeholder="e.g. name@domain.com" required>
+                <span class="error-msg" id="email-error">Please enter a valid email address.</span>
+              </div>
+            </div>
+
+            <!-- Pet Name & Species -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pet-name" class="form-label">Pet's Name(s) *</label>
+                <input type="text" id="pet-name" class="form-control" placeholder="e.g. Barnaby & Luna" required>
+              </div>
+              <div class="form-group">
+                <label for="pet-type" class="form-label">Pet Species / Breed</label>
+                <input type="text" id="pet-type" class="form-control" placeholder="e.g. Golden Retriever, Calico Cat, Horse">
+              </div>
+            </div>
+
+            <!-- Medium & Canvas Size -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="preferred-medium" class="form-label">Preferred Medium *</label>
+                <select id="preferred-medium" class="form-control" required>
+                  <option value="" disabled selected>Select an Artistic Medium</option>
+                  <option value="oil">Classical Oil on Linen ($495+)</option>
+                  <option value="watercolor">Luminous Watercolor ($249+)</option>
+                  <option value="digital">Digital Fine Art Giclée ($195+)</option>
+                  <option value="charcoal">Charcoal & Graphite ($225+)</option>
+                  <option value="memorial">Memorial Tribute Portrait ($249+)</option>
+                  <option value="unsure">Not sure yet (Need artist advice)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="canvas-size" class="form-label">Desired Size / Format</label>
+                <select id="canvas-size" class="form-control">
+                  <option value="" disabled selected>Select Canvas / Paper Size</option>
+                  <option value="8x10">Mini Keepsake (8" &times; 10")</option>
+                  <option value="12x16">Classic (12" &times; 16")</option>
+                  <option value="16x20">Large Classic (16" &times; 20")</option>
+                  <option value="18x24">Grand Masterpiece (18" &times; 24")</option>
+                  <option value="24x36">Statement Canvas (24" &times; 36")</option>
+                  <option value="custom">Custom Size / Not sure</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Number of Pets & Occasion / Timeline -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="num-pets" class="form-label">Number of Pets in Artwork</label>
+                <select id="num-pets" class="form-control">
+                  <option value="1">1 Pet (Single Portrait)</option>
+                  <option value="2">2 Pets (Duo Composition)</option>
+                  <option value="3">3 Pets (Trio)</option>
+                  <option value="4+">4+ Pets (Family Group)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="target-date" class="form-label">Needed By / Occasion (Optional)</label>
+                <input type="text" id="target-date" class="form-control" placeholder="e.g. Birthday, Christmas, No Rush">
+              </div>
+            </div>
+
+            <!-- Photo Upload Link / Notes -->
+            <div class="form-group">
+              <label for="photo-notes" class="form-label">Photo Link / Reference Notes</label>
+              <input type="text" id="photo-notes" class="form-control" placeholder="Paste Google Drive / Dropbox / iCloud link or note you'll email them">
+              <small style="color: var(--text-muted); display: block; margin-top: 4px;">You can also attach high-res photos directly in reply to our confirmation email.</small>
+            </div>
+
+            <!-- Message & Personality Details -->
+            <div class="form-group">
+              <label for="message" class="form-label">Pet Personality, Quirks & Special Requests *</label>
+              <textarea id="message" rows="4" class="form-control"
+                placeholder="Tell us about their spirit! Are they dignified, goofy, gentle, or energetic? Any favorite background colors or special collar details to include?" required></textarea>
+              <span class="error-msg" id="message-error">Please describe your pet and commission vision.</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">
+              <i class="fa-solid fa-paintbrush" style="margin-right: 8px;"></i> Submit Commission Request
+            </button>
+          </form>
+        </div>
+
+        <!-- Info Area (Right) -->
+        <div class="fade-in-up" style="transition-delay: 150ms;">
+          
+          <!-- Card 1: Atelier Information -->
+          <div class="contact-info-card">
+            <div style="height: 160px; border-radius: 8px; overflow: hidden; margin-bottom: 18px;">
+              <img src="assets/images/artist-studio.jpg" alt="PawVinci Artist Studio" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <h3 class="mb-4" style="font-size: 1.35rem; color: var(--primary);">Atelier Information</h3>
+            
+            <div class="contact-info-item">
+              <div class="contact-icon-box"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <h5 style="margin-bottom: 2px; font-size: 1rem;">Direct Studio Inquiries</h5>
+                <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0;">commissions@pawvinci-atelier.com</p>
+                <span style="font-size: 0.8rem; color: var(--primary); font-weight: 600;">Personal artist reply within 24 hours</span>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-icon-box"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <h5 style="margin-bottom: 2px; font-size: 1rem;">Telephone / Concierge</h5>
+                <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0;">+1 (800) 555-PAWS (7297)</p>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Mon &ndash; Fri: 9:00 AM &ndash; 6:00 PM EST</span>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-icon-box"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <h5 style="margin-bottom: 2px; font-size: 1rem;">Artist Studio &amp; Gallery</h5>
+                <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0;">428 Artisan Loft Row, Suite 3B<br>Beacon Art District, NY 12508</p>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Private studio visits by appointment</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Interactive Studio Map -->
+          <div class="contact-info-card">
+            <h3 class="mb-3" style="font-size: 1.35rem; color: var(--primary);">
+              <i class="fa-solid fa-map-location-dot" style="margin-right: 8px;"></i> Studio Location &amp; Map
+            </h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 14px;">
+              Located in the heart of the historic Hudson Valley Beacon Art District.
+            </p>
+            
+            <div class="map-frame-wrapper">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48348.66597750346!2d-73.98709549999999!3d41.5048195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dd3365922e4d0d%3A0xc3ce1a5d6df99395!2sBeacon%2C%20NY!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                title="PawVinci Atelier Studio Location Map" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+              <span style="color: var(--text-muted);"><i class="fa-solid fa-car" style="color: var(--primary); margin-right: 6px;"></i> Free Patron Parking On-Site</span>
+              <a href="https://maps.google.com/?q=Beacon+Art+District+NY" target="_blank" rel="noopener" style="color: var(--primary); font-weight: 600; text-decoration: none;">Get Directions &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 3: Social Channels & Photo Tips -->
+          <div class="contact-info-card">
+            <h3 class="mb-3" style="font-size: 1.35rem; color: var(--primary);">
+              <i class="fa-solid fa-share-nodes" style="margin-right: 8px;"></i> Connect &amp; Social Channels
+            </h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 14px;">
+              Follow daily painting progress on the easel, live reels, and happy patron portraits.
+            </p>
+
+            <div class="social-links-grid">
+              <a href="#" class="social-btn-card instagram" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+                <div>
+                  <div style="font-size: 0.85rem; line-height: 1.2;">Instagram</div>
+                  <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">@PawVinciAtelier</span>
+                </div>
+              </a>
+              <a href="#" class="social-btn-card facebook" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+                <div>
+                  <div style="font-size: 0.85rem; line-height: 1.2;">Facebook</div>
+                  <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">PawVinci Studio</span>
+                </div>
+              </a>
+              <a href="#" class="social-btn-card pinterest" aria-label="Pinterest">
+                <i class="fa-brands fa-pinterest-p"></i>
+                <div>
+                  <div style="font-size: 0.85rem; line-height: 1.2;">Pinterest</div>
+                  <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Pet Art Heirlooms</span>
+                </div>
+              </a>
+              <a href="#" class="social-btn-card youtube" aria-label="YouTube">
+                <i class="fa-brands fa-youtube"></i>
+                <div>
+                  <div style="font-size: 0.85rem; line-height: 1.2;">YouTube</div>
+                  <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: normal;">Atelier Channel</span>
+                </div>
+              </a>
+            </div>
+
+            <div style="border-top: 1px solid var(--border-color); padding-top: 14px; margin-top: 6px;">
+              <h5 style="font-size: 0.95rem; margin-bottom: 10px; color: var(--text-color);">
+                <i class="fa-solid fa-camera" style="color: var(--primary); margin-right: 6px;"></i> Quick Reference Photo Tips
+              </h5>
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="margin-bottom: 8px; font-size: 0.86rem; display: flex; gap: 8px; color: var(--text-muted);">
+                  <i class="fa-solid fa-check" style="color: var(--primary); margin-top: 3px;"></i>
+                  <span><strong>Clear eyes:</strong> Ensure iris highlights and eye reflections are visible.</span>
+                </li>
+                <li style="margin-bottom: 8px; font-size: 0.86rem; display: flex; gap: 8px; color: var(--text-muted);">
+                  <i class="fa-solid fa-check" style="color: var(--primary); margin-top: 3px;"></i>
+                  <span><strong>Natural daylight:</strong> Soft window lighting shows accurate coat colors.</span>
+                </li>
+                <li style="font-size: 0.86rem; display: flex; gap: 8px; color: var(--text-muted);">
+                  <i class="fa-solid fa-check" style="color: var(--primary); margin-top: 3px;"></i>
+                  <span><strong>Send multiple:</strong> You can attach 3 to 6 photos for best composition.</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid fade-in-up">
+        <div style="text-align: inherit;">
+          <a href="index.html" class="logo">
+            <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+          </a>
+          <p class="footer-desc">Bespoke fine art pet portraiture honoring loyal companions worldwide. Hand-crafted in oil, watercolor, and digital Giclée since 2012.</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon pinterest" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" class="social-icon youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Studio Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home2.html">Home 2</a></li>
+            <li><a href="services.html">Portfolio by Medium</a></li>
+            <li><a href="about.html">Commission Process</a></li>
+            <li><a href="pricing.html">Pricing & Sizes</a></li>
+            <li><a href="contact.html">Request a Portrait</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Artistic Mediums</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#oil">Classical Oil on Linen</a></li>
+            <li><a href="services.html#watercolor">Luminous Watercolor</a></li>
+            <li><a href="services.html#digital">Fine Art Digital Giclée</a></li>
+            <li><a href="services.html#charcoal">Charcoal & Graphite</a></li>
+            <li><a href="services.html#memorial">Memorial Portraits</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Atelier Updates</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">Receive studio release announcements, framing guides, and pet art stories.</p>
+          <form class="newsletter-form">
+            <input type="email" class="form-control" placeholder="Your email address" required>
+            <button type="submit" class="btn btn-primary" style="padding: 12px 18px;" aria-label="Subscribe">&rarr;</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom fade-in-up">
+        <p>&copy; 2026 PawVinci Atelier. Custom Pet Portrait Artist Studio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
