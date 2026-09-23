@@ -30,10 +30,13 @@
 
     /* Collection Hero */
     .collection-hero {
-      padding: 70px 0 40px;
+      position: relative;
+      padding: 100px 0 70px;
       text-align: center;
-      background: linear-gradient(180deg, rgba(196, 104, 73, 0.06) 0%, rgba(250, 247, 242, 0) 100%);
+      background: linear-gradient(180deg, rgba(20, 16, 14, 0.78) 0%, rgba(28, 24, 22, 0.88) 100%),
+                  url('assets/images/hero-home1.jpg') center/cover no-repeat;
       border-bottom: 1px solid var(--border-color);
+      color: #FAF7F2;
     }
 
     .collection-eyebrow {
@@ -41,26 +44,29 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2.5px;
-      color: var(--primary);
-      margin-bottom: 12px;
+      color: #F2B29B;
+      background: rgba(196, 104, 73, 0.25);
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 14px;
       display: inline-block;
     }
 
     .collection-title {
       font-family: var(--collection-serif);
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-size: clamp(2.4rem, 5vw, 4rem);
       font-weight: 600;
-      color: var(--text-color);
-      line-height: 1.18;
+      color: #FAF7F2;
+      line-height: 1.15;
       max-width: 850px;
       margin: 0 auto 16px;
       letter-spacing: 0.5px;
     }
 
     .collection-lead {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 680px;
+      font-size: 1.1rem;
+      color: rgba(250, 247, 242, 0.92);
+      max-width: 700px;
       margin: 0 auto 28px;
       line-height: 1.65;
     }
@@ -75,12 +81,13 @@
     }
 
     .filter-pill {
-      background: var(--surface-color);
-      border: 1px solid var(--border-color);
-      color: var(--text-color);
-      padding: 8px 20px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #FAF7F2;
+      padding: 9px 22px;
       border-radius: 30px;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.25s ease;
@@ -91,7 +98,152 @@
       background: var(--primary);
       border-color: var(--primary);
       color: #fff;
-      box-shadow: 0 4px 14px rgba(196, 104, 73, 0.25);
+      box-shadow: 0 4px 14px rgba(196, 104, 73, 0.35);
+    }
+
+    /* Studio Journey Steps */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    @media (max-width: 992px) {
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 580px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .step-card {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 30px 24px;
+      position: relative;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .step-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+    .step-number-badge {
+      font-family: var(--collection-serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      opacity: 0.85;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .step-card h4 {
+      font-size: 1.15rem;
+      color: var(--text-color);
+      margin-bottom: 10px;
+    }
+    .step-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Framing Feature Banner */
+    .framing-spotlight-box {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 40px;
+      align-items: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.03);
+    }
+    @media (max-width: 900px) {
+      .framing-spotlight-box {
+        grid-template-columns: 1fr;
+        padding: 28px 20px;
+      }
+    }
+    .moulding-swatches-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .moulding-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .wood-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    /* FAQ Section */
+    .faq-accordion-group {
+      max-width: 800px;
+      margin: 36px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .faq-item {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+    .faq-item.active {
+      border-color: var(--primary);
+    }
+    .faq-question-btn {
+      width: 100%;
+      padding: 18px 22px;
+      text-align: left;
+      background: none;
+      border: none;
+      color: var(--text-color);
+      font-family: var(--collection-sans);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    [dir="rtl"] .faq-question-btn {
+      text-align: right;
+    }
+    .faq-answer-panel {
+      display: none;
+      padding: 0 22px 20px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .faq-item.active .faq-answer-panel {
+      display: block;
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+      color: var(--primary);
+    }
+    .faq-icon {
+      transition: transform 0.25s ease;
     }
 
     /* Product Collection Grid */
@@ -538,7 +690,45 @@
     </div>
   </section>
 
-  <!-- Section 3: Meet Artist Eleanor Vance (Atelier Story) -->
+  <!-- Section 3: The 4-Step Studio Journey -->
+  <section class="section-padding" style="background: var(--bg-color); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="text-center fade-in-up" style="max-width: 760px; margin: 0 auto 10px;">
+        <span class="collection-eyebrow">The Commission Experience</span>
+        <h2 style="font-family: var(--collection-serif); font-size: clamp(2.2rem, 4vw, 3.2rem); color: var(--text-color);">
+          From Phone Snapshot to Museum Heirloom
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem;">
+          We take the time to know your pet's personality and gaze. Here is how Eleanor Vance transforms everyday camera roll photos into original fine art.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card fade-in-up">
+          <span class="step-number-badge">01</span>
+          <h4>Submit Photos &amp; Share Spirit</h4>
+          <p>Send your favorite photos—no professional photography required. Share stories about their personality, energy, and favorite quirks.</p>
+        </div>
+        <div class="step-card fade-in-up" style="transition-delay: 100ms;">
+          <span class="step-number-badge">02</span>
+          <h4>Composition &amp; Palette Proof</h4>
+          <p>Within 24 hours, receive a digital proof detailing cropped composition, background harmonies, and lighting balance for your review.</p>
+        </div>
+        <div class="step-card fade-in-up" style="transition-delay: 200ms;">
+          <span class="step-number-badge">03</span>
+          <h4>Hand-Painted by Fine Artists</h4>
+          <p>Crafted stroke-by-stroke with master artist-grade lightfast pigments on Belgian linen canvas or 300gsm 100% cotton paper.</p>
+        </div>
+        <div class="step-card fade-in-up" style="transition-delay: 300ms;">
+          <span class="step-number-badge">04</span>
+          <h4>Archival Framing &amp; Delivery</h4>
+          <p>Custom-framed in solid American hardwood, sealed against humidity and UV light, and delivered safely to your doorstep with tracked shipping.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Meet Artist Eleanor Vance (Atelier Story) -->
   <section class="artist-story-section">
     <div class="container">
       <div class="artist-split-grid">
@@ -569,7 +759,36 @@
     </div>
   </section>
 
-  <!-- Section 4: Verified Reviews -->
+  <!-- Section 5: Museum Framing Standards Spotlight -->
+  <section class="section-padding" style="padding-top: 10px;">
+    <div class="container">
+      <div class="framing-spotlight-box fade-in-up">
+        <div>
+          <span class="collection-eyebrow">Preservation Standards</span>
+          <h2 style="font-family: var(--collection-serif); font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-bottom: 14px;">
+            Solid Hardwood Frames Crafted for Centuries
+          </h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.65; margin-bottom: 16px;">
+            Your companion's portrait deserves museum-standard protection. Every framed piece comes fully assembled with acid-free backing, dust-seals, and pre-installed hanging wire ready to mount.
+          </p>
+          <div class="moulding-swatches-row">
+            <div class="moulding-chip"><span class="wood-dot" style="background: #4A3525;"></span> Solid Walnut</div>
+            <div class="moulding-chip"><span class="wood-dot" style="background: #C4A47C;"></span> Natural White Oak</div>
+            <div class="moulding-chip"><span class="wood-dot" style="background: #D4AF37;"></span> Antique Gold Leaf</div>
+            <div class="moulding-chip"><span class="wood-dot" style="background: #1C1917;"></span> Matte Gallery Black</div>
+          </div>
+          <div style="margin-top: 24px;">
+            <a href="pricing.html" class="btn btn-outline btn-sm">Explore Sizes &amp; Framing &rarr;</a>
+          </div>
+        </div>
+        <div style="border-radius: 12px; overflow: hidden; height: 320px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
+          <img src="assets/images/hero-pricing.jpg" alt="Artisan Framing Workshop" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Verified Reviews -->
   <section class="section-padding">
     <div class="container">
       <div class="reviews-badge-header fade-in-up">
@@ -592,39 +811,84 @@
           <div style="color: #FFB800; font-size: 0.85rem; margin-bottom: 8px;"><i class="fa-solid fa-star"></i><i
               class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
               class="fa-solid fa-star"></i></div>
-          <h4 style="font-family: var(--collection-serif); font-size: 1.2rem; margin-bottom: 6px;">"Brought tears of pure
-            joy!"</h4>
-          <p style="font-size: 0.9rem; color: var(--text-muted); font-style: italic; margin-bottom: 12px;">"The
-            watercolor portrait of our rescue dog Ollie arrived today and we couldn't stop staring. The fur details and
-            eye reflections look like magic."</p>
-          <strong style="font-size: 0.82rem; text-transform: uppercase; color: var(--text-color);">&mdash; Caroline M.
-            &bull; Verified Buyer</strong>
+          <h4 style="font-family: var(--collection-serif); font-size: 1.2rem; margin-bottom: 6px;">"Brought tears of pure joy!"</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); font-style: italic; margin-bottom: 12px;">"The watercolor portrait of our rescue dog Ollie arrived today and we couldn't stop staring. The fur details and eye reflections look like magic."</p>
+          <strong style="font-size: 0.82rem; text-transform: uppercase; color: var(--text-color);">&mdash; Caroline M. &bull; Verified Buyer</strong>
         </div>
 
         <div class="collection-review-card fade-in-up" style="transition-delay: 100ms;">
           <div style="color: #FFB800; font-size: 0.85rem; margin-bottom: 8px;"><i class="fa-solid fa-star"></i><i
               class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
               class="fa-solid fa-star"></i></div>
-          <h4 style="font-family: var(--collection-serif); font-size: 1.2rem; margin-bottom: 6px;">"The white pencil on
-            black paper is stunning"</h4>
-          <p style="font-size: 0.9rem; color: var(--text-muted); font-style: italic; margin-bottom: 12px;">"Such a
-            dramatic, high-end piece. It is the first thing guests notice when walking into our dining room. Highly
-            recommend!"</p>
-          <strong style="font-size: 0.82rem; text-transform: uppercase; color: var(--text-color);">&mdash; Thomas K.
-            &bull; Verified Buyer</strong>
+          <h4 style="font-family: var(--collection-serif); font-size: 1.2rem; margin-bottom: 6px;">"The white pencil on black paper is stunning"</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); font-style: italic; margin-bottom: 12px;">"Such a dramatic, high-end piece. It is the first thing guests notice when walking into our dining room. Highly recommend!"</p>
+          <strong style="font-size: 0.82rem; text-transform: uppercase; color: var(--text-color);">&mdash; Thomas K. &bull; Verified Buyer</strong>
         </div>
 
         <div class="collection-review-card fade-in-up" style="transition-delay: 200ms;">
           <div style="color: #FFB800; font-size: 0.85rem; margin-bottom: 8px;"><i class="fa-solid fa-star"></i><i
               class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
               class="fa-solid fa-star"></i></div>
-          <h4 style="font-family: var(--collection-serif); font-size: 1.2rem; margin-bottom: 6px;">"A priceless tribute to
-            our Bella"</h4>
-          <p style="font-size: 0.9rem; color: var(--text-muted); font-style: italic; margin-bottom: 12px;">"We lost
-            Bella last fall. Having this oil painting on our mantel brings us comfort every evening. The artist was so
-            compassionate throughout."</p>
-          <strong style="font-size: 0.82rem; text-transform: uppercase; color: var(--text-color);">&mdash; Michael &amp;
-            Sarah G. &bull; Verified Buyer</strong>
+          <h4 style="font-family: var(--collection-serif); font-size: 1.2rem; margin-bottom: 6px;">"A priceless tribute to our Bella"</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); font-style: italic; margin-bottom: 12px;">"We lost Bella last fall. Having this oil painting on our mantel brings us comfort every evening. The artist was so compassionate throughout."</p>
+          <strong style="font-size: 0.82rem; text-transform: uppercase; color: var(--text-color);">&mdash; Michael &amp; Sarah G. &bull; Verified Buyer</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Frequently Asked Questions Accordion -->
+  <section class="section-padding" style="background: var(--bg-color); border-top: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="text-center fade-in-up" style="max-width: 700px; margin: 0 auto;">
+        <span class="collection-eyebrow">Collector Inquiries</span>
+        <h2 style="font-family: var(--collection-serif); font-size: clamp(2rem, 4vw, 3rem);">
+          Frequently Asked Questions
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1rem;">
+          Everything you need to know about commissioning, photo requirements, and our 100% likeness guarantee.
+        </p>
+      </div>
+
+      <div class="faq-accordion-group fade-in-up">
+        <div class="faq-item active">
+          <button class="faq-question-btn" onclick="toggleFaq(this)">
+            <span>Can you combine multiple pets from separate photos?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer-panel" style="display: block;">
+            Yes! In fact, most of our multi-pet portraits are created from individual photos. We align lighting angles, correct scales, and create a balanced composition so they look naturally seated side-by-side.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question-btn" onclick="toggleFaq(this)">
+            <span>What if my reference photos are blurry or older?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer-panel">
+            We specialize in working with sentimental and older photos. If certain details are unclear, you can submit 2–3 different angles, and we will reconstruct fur textures, eye highlights, and true colors during the initial proofing phase.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question-btn" onclick="toggleFaq(this)">
+            <span>What is the turnaround time from order to delivery?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer-panel">
+            Digital and graphite pencil portraits take approximately 10–14 days. Watercolor portraits take 2–3 weeks, and classical layered oils take 3–4 weeks to allow proper pigment curing and varnish drying. Rush studio options are available.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question-btn" onclick="toggleFaq(this)">
+            <span>What happens if I want changes to the proof?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer-panel">
+            Every commission includes 100% free unlimited digital composition adjustments. We do not finalize framing or shipping until you are completely thrilled with the likeness and expression.
+          </div>
         </div>
       </div>
     </div>
@@ -716,6 +980,23 @@
           card.style.display = 'none';
         }
       });
+    }
+
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const panel = item.querySelector('.faq-answer-panel');
+      const isOpen = item.classList.contains('active');
+
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        const p = i.querySelector('.faq-answer-panel');
+        if (p) p.style.display = 'none';
+      });
+
+      if (!isOpen) {
+        item.classList.add('active');
+        if (panel) panel.style.display = 'block';
+      }
     }
   </script>
 </body>

@@ -19,63 +19,70 @@
       --peternity-dark: #1E1A18;
       --peternity-green: #00B67A;
       --peternity-star: #FFB800;
-      --peternity-soft: #FCF8F5;
-      --peternity-border: #EFE4DC;
+      --peternity-soft: #FBF7F3;
+      --peternity-card-active: #FFF4ED;
+      --peternity-border: #EAE0D6;
+    }
+
+    [data-theme="dark"] {
+      --peternity-soft: #231E1B;
+      --peternity-card-active: #342823;
+      --peternity-border: #3A322D;
     }
 
     /* Top Announcement Ribbon */
-    .announcement-bar {
+    .top-announcement-bar {
       background: #C46849;
-      color: #fff;
-      padding: 8px 16px;
+      color: #ffffff;
+      padding: 9px 16px;
       font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 16px;
       text-align: center;
       position: relative;
       z-index: 1001;
+      line-height: 1.4;
     }
 
     /* Peternity Layout */
     .customizer-container {
-      max-width: 1240px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 24px 20px 60px;
+      padding: 32px 20px 64px;
+      box-sizing: border-box;
+      width: 100%;
     }
 
     .customizer-grid {
       display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: 48px;
+      grid-template-columns: 1.08fr 1fr;
+      gap: 44px;
       align-items: start;
-    }
-
-    @media (max-width: 992px) {
-      .customizer-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
+      width: 100%;
+      box-sizing: border-box;
     }
 
     /* Gallery Showcase (Left) */
     .gallery-main-frame {
       position: sticky;
-      top: 100px;
+      top: 96px;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .main-portrait-img-box {
       width: 100%;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 4 / 5;
+      max-height: 540px;
       border-radius: 20px;
       overflow: hidden;
       background: var(--surface-color);
       border: 1px solid var(--border-color);
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
       position: relative;
     }
 
@@ -83,7 +90,23 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
       transition: opacity 0.3s ease, transform 0.4s ease;
+    }
+
+    .gallery-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(30, 26, 24, 0.88);
+      backdrop-filter: blur(4px);
+      color: #ffffff;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      z-index: 2;
     }
 
     .gallery-thumbnails-strip {
@@ -93,11 +116,12 @@
       overflow-x: auto;
       padding: 4px 2px 10px;
       scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
     }
 
     .thumb-btn {
-      width: 72px;
-      height: 72px;
+      width: 68px;
+      height: 68px;
       border-radius: 12px;
       overflow: hidden;
       border: 2px solid transparent;
@@ -112,28 +136,43 @@
     .thumb-btn.active {
       border-color: var(--primary);
       opacity: 1;
-      transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(196, 104, 73, 0.25);
+      transform: scale(1.04);
+      box-shadow: 0 4px 14px rgba(196, 104, 73, 0.28);
     }
 
     .thumb-btn img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     /* Customizer Form Area (Right) */
+    .customizer-form-area {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
     .product-headline {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-size: clamp(2rem, 3.2vw, 2.65rem);
       color: var(--text-color);
-      line-height: 1.15;
+      line-height: 1.18;
       margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .product-subheadline {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 12px;
+      line-height: 1.5;
     }
 
     .rating-row {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 12px;
       font-size: 0.9rem;
@@ -145,40 +184,43 @@
       gap: 4px;
       background: var(--peternity-green);
       color: #fff;
-      padding: 2px 8px;
+      padding: 3px 8px;
       border-radius: 4px;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       font-weight: 700;
     }
 
     .price-strip {
       display: flex;
       align-items: baseline;
-      gap: 14px;
-      margin: 16px 0 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 16px 0 22px;
     }
 
     .current-price {
-      font-size: 1.9rem;
+      font-size: 2.1rem;
       font-weight: 800;
       color: var(--text-color);
       font-family: var(--font-body);
+      line-height: 1;
     }
 
     .original-price {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       color: var(--text-muted);
       text-decoration: line-through;
     }
 
     .discount-pill {
-      background: #FF7B7B;
-      color: #fff;
-      font-size: 0.75rem;
+      background: #E85D5D;
+      color: #ffffff;
+      font-size: 0.74rem;
       font-weight: 700;
-      padding: 3px 10px;
+      padding: 4px 11px;
       border-radius: 20px;
       letter-spacing: 0.5px;
+      display: inline-block;
     }
 
     /* Step Selector Cards */
@@ -187,12 +229,13 @@
     }
 
     .selector-label {
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       font-weight: 700;
       color: var(--text-color);
       margin-bottom: 10px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
 
     .options-grid-2 {
@@ -205,14 +248,16 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 12px 14px;
+      padding: 13px 14px;
       border-radius: 14px;
       border: 2px solid var(--border-color);
       background: var(--surface-color);
       cursor: pointer;
       text-align: left;
-      transition: all 0.2s ease;
+      transition: all 0.22s ease;
       position: relative;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .option-card-btn:hover {
@@ -220,29 +265,30 @@
     }
 
     .option-card-btn.active {
-      border-color: var(--text-color);
-      background: var(--peternity-soft);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      border-color: var(--primary) !important;
+      background: var(--peternity-card-active) !important;
+      box-shadow: 0 4px 16px rgba(196, 104, 73, 0.15);
     }
 
     .option-card-btn .check-circle {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       border: 2px solid var(--border-color);
       margin-left: auto;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       color: transparent;
       flex-shrink: 0;
+      transition: all 0.2s ease;
     }
 
     .option-card-btn.active .check-circle {
-      background: var(--text-color);
-      border-color: var(--text-color);
-      color: #fff;
+      background: var(--primary) !important;
+      border-color: var(--primary) !important;
+      color: #ffffff !important;
     }
 
     .option-thumb {
@@ -255,15 +301,17 @@
 
     .option-title {
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       color: var(--text-color);
       display: block;
+      line-height: 1.25;
     }
 
     .option-sub {
-      font-size: 0.75rem;
+      font-size: 0.76rem;
       color: var(--text-muted);
       display: block;
+      margin-top: 2px;
     }
 
     /* Size Vertical List */
@@ -277,12 +325,16 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 12px;
       padding: 14px 18px;
       border-radius: 14px;
       border: 2px solid var(--border-color);
       background: var(--surface-color);
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.22s ease;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: left;
     }
 
     .size-btn:hover {
@@ -290,21 +342,74 @@
     }
 
     .size-btn.active {
-      border-color: var(--text-color);
-      background: var(--peternity-soft);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      border-color: var(--primary) !important;
+      background: var(--peternity-card-active) !important;
+      box-shadow: 0 4px 16px rgba(196, 104, 73, 0.15);
+    }
+
+    .size-name {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text-color);
+    }
+
+    .size-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .size-price-tag {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+      flex-shrink: 0;
     }
 
     .size-badge-pop {
       background: var(--primary);
-      color: #fff;
-      font-size: 0.7rem;
+      color: #ffffff;
+      font-size: 0.68rem;
       font-weight: 700;
-      padding: 2px 8px;
+      padding: 2px 7px;
       border-radius: 4px;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-left: 8px;
+      letter-spacing: 0.4px;
+      margin-left: 6px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* Explicit Dark Mode Overrides for Active Options */
+    [data-theme="dark"] .option-card-btn {
+      background: #25201D;
+      border-color: #38302B;
+    }
+
+    [data-theme="dark"] .option-card-btn.active {
+      background: #342823 !important;
+      border-color: var(--primary) !important;
+    }
+
+    [data-theme="dark"] .size-btn {
+      background: #25201D;
+      border-color: #38302B;
+    }
+
+    [data-theme="dark"] .size-btn.active {
+      background: #342823 !important;
+      border-color: var(--primary) !important;
+    }
+
+    [data-theme="dark"] .option-title,
+    [data-theme="dark"] .size-name {
+      color: #FAF7F2 !important;
+    }
+
+    [data-theme="dark"] .option-sub,
+    [data-theme="dark"] .size-desc {
+      color: #AFA69E !important;
     }
 
     /* Action CTA */
@@ -312,25 +417,32 @@
       width: 100%;
       padding: 16px 24px;
       background: var(--text-color);
-      color: #fff;
+      color: var(--bg-color);
       border: none;
       border-radius: 14px;
       font-size: 1rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.2px;
       cursor: pointer;
       transition: all 0.25s ease;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      margin-top: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      margin-top: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+      text-decoration: none;
+      box-sizing: border-box;
+    }
+
+    [data-theme="dark"] .cta-submit-btn {
+      background: var(--primary);
+      color: #ffffff;
     }
 
     .cta-submit-btn:hover {
-      background: #3D332F;
+      opacity: 0.92;
       transform: translateY(-2px);
       box-shadow: 0 12px 28px rgba(0,0,0,0.2);
     }
@@ -342,18 +454,20 @@
       gap: 8px;
       background: var(--peternity-soft);
       border: 1px solid var(--peternity-border);
-      padding: 10px 16px;
-      border-radius: 10px;
-      margin-top: 12px;
-      font-size: 0.85rem;
+      padding: 11px 16px;
+      border-radius: 12px;
+      margin-top: 14px;
+      font-size: 0.86rem;
       color: var(--text-muted);
+      text-align: center;
+      flex-wrap: wrap;
     }
 
     /* Feature Pillars */
     .pillars-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 14px;
       margin: 24px 0;
       padding-top: 20px;
       border-top: 1px solid var(--border-color);
@@ -373,6 +487,8 @@
       text-transform: uppercase;
       color: var(--text-color);
       letter-spacing: 0.5px;
+      line-height: 1.3;
+      display: block;
     }
 
     /* Quote Banner */
@@ -380,20 +496,25 @@
       background: var(--peternity-soft);
       border: 1px solid var(--peternity-border);
       border-radius: 16px;
-      padding: 18px 20px;
+      padding: 16px 18px;
       display: flex;
-      gap: 16px;
+      gap: 14px;
       align-items: center;
       margin-top: 20px;
+      box-sizing: border-box;
     }
 
     .quote-avatar {
-      width: 50px;
-      height: 50px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       object-fit: cover;
       flex-shrink: 0;
       border: 2px solid #fff;
+    }
+
+    [data-theme="dark"] .quote-avatar {
+      border-color: #38302B !important;
     }
 
     /* Accordions */
@@ -411,10 +532,11 @@
       align-items: center;
       cursor: pointer;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.94rem;
       color: var(--text-color);
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      text-align: left;
     }
 
     .peternity-accordion-body {
@@ -429,19 +551,20 @@
       display: block;
     }
 
-    /* Video / Reel Showcase Section */
+    /* Video Reels Strip */
     .video-reels-strip {
       display: flex;
       gap: 18px;
       overflow-x: auto;
-      padding: 20px 0 30px;
+      padding: 16px 4px 28px;
       scrollbar-width: thin;
       snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
     }
 
     .reel-card {
-      min-width: 240px;
-      height: 380px;
+      min-width: 230px;
+      height: 360px;
       border-radius: 20px;
       overflow: hidden;
       position: relative;
@@ -449,6 +572,10 @@
       snap-align: start;
       box-shadow: 0 10px 24px rgba(0,0,0,0.08);
       border: 3px solid #fff;
+    }
+
+    [data-theme="dark"] .reel-card {
+      border-color: #38302B !important;
     }
 
     .reel-card img {
@@ -459,21 +586,253 @@
     }
 
     .reel-card:hover img {
-      transform: scale(1.05);
+      transform: scale(1.04);
+    }
+    .gallery-proof-note {
+      margin: 14px auto 0;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--peternity-soft);
+      border: 1px dashed var(--peternity-border);
+      padding: 10px 16px;
+      border-radius: 12px;
+      line-height: 1.4;
+      text-align: center;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .gallery-proof-note i {
+      flex-shrink: 0;
     }
 
     .reel-badge-tag {
       position: absolute;
-      bottom: 16px;
-      left: 14px;
-      right: 14px;
-      background: rgba(30, 26, 24, 0.85);
+      bottom: 14px;
+      left: 12px;
+      right: 12px;
+      background: rgba(30, 26, 24, 0.88);
       backdrop-filter: blur(4px);
       color: #fff;
       padding: 8px 12px;
       border-radius: 10px;
       font-size: 0.82rem;
       font-weight: 600;
+    }
+
+    /* =========================================================
+       RESPONSIVE BREAKPOINTS (Desktop, 1024px, Tablet, Mobile)
+       ========================================================= */
+
+    /* 1. Tablet & 1024px Screen Adaptations (<= 1024px) */
+    @media (max-width: 1024px) {
+      .customizer-container {
+        padding: 24px 20px 48px;
+        max-width: 760px;
+      }
+
+      .customizer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .gallery-main-frame {
+        position: static !important;
+        max-width: 480px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .main-portrait-img-box {
+        aspect-ratio: 1 / 1;
+        max-height: 440px;
+      }
+
+      .gallery-thumbnails-strip {
+        justify-content: center;
+      }
+
+      .customizer-form-area {
+        max-width: 100%;
+      }
+    }
+
+    /* 2. Small Tablet / Large Mobile (<= 768px) */
+    @media (max-width: 768px) {
+      .top-announcement-bar {
+        font-size: 0.72rem;
+        letter-spacing: 0.6px;
+        padding: 8px 12px;
+      }
+
+      .product-headline {
+        font-size: 1.85rem;
+      }
+
+      .current-price {
+        font-size: 1.85rem;
+      }
+
+      .gallery-main-frame {
+        max-width: 420px;
+      }
+
+      .client-quote-bubble {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px;
+      }
+    }
+
+    /* 3. Mobile Screens (<= 560px down to 320px) */
+    @media (max-width: 560px) {
+      .customizer-container {
+        padding: 14px 12px 36px;
+      }
+
+      .customizer-grid {
+        gap: 20px;
+      }
+
+      .gallery-main-frame {
+        max-width: 100%;
+      }
+
+      .main-portrait-img-box {
+        border-radius: 16px;
+        aspect-ratio: 1 / 1;
+        max-height: 360px;
+      }
+
+      .gallery-badge {
+        top: 10px;
+        left: 10px;
+        padding: 4px 10px;
+        font-size: 0.7rem;
+      }
+
+      .gallery-thumbnails-strip {
+        gap: 8px;
+        margin-top: 10px;
+        padding: 2px 0 6px;
+        scrollbar-width: none;
+      }
+
+      .gallery-thumbnails-strip::-webkit-scrollbar {
+        display: none;
+      }
+
+      .thumb-btn {
+        width: 52px;
+        height: 52px;
+        border-radius: 10px;
+      }
+
+      .gallery-proof-note {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+        margin-top: 10px;
+        gap: 8px;
+      }
+
+      .product-headline {
+        font-size: clamp(1.5rem, 5.5vw, 1.8rem);
+        margin-top: 4px;
+      }
+
+      .product-subheadline {
+        font-size: 0.88rem;
+        margin-bottom: 8px;
+      }
+
+      .rating-row {
+        gap: 6px 10px;
+        font-size: 0.82rem;
+        margin-bottom: 8px;
+      }
+
+      .price-strip {
+        margin: 12px 0 18px;
+        gap: 10px;
+      }
+
+      .current-price {
+        font-size: 1.75rem;
+      }
+
+      .original-price {
+        font-size: 1.15rem;
+      }
+
+      .selector-block {
+        margin-bottom: 18px;
+      }
+
+      .selector-label {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+      }
+
+      .options-grid-2 {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .option-card-btn {
+        padding: 11px 12px;
+        border-radius: 12px;
+      }
+
+      .size-btn {
+        padding: 12px 14px;
+        border-radius: 12px;
+      }
+
+      .size-name {
+        font-size: 0.88rem;
+      }
+
+      .size-desc {
+        font-size: 0.74rem;
+      }
+
+      .size-price-tag {
+        font-size: 1.05rem;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding-top: 16px;
+        margin: 18px 0;
+      }
+
+      .cta-submit-btn {
+        padding: 14px 18px;
+        font-size: 0.92rem;
+        letter-spacing: 0.8px;
+        border-radius: 12px;
+      }
+
+      .delivery-eta-box {
+        font-size: 0.78rem;
+        padding: 10px 12px;
+        border-radius: 10px;
+      }
+
+      .peternity-accordion-header {
+        font-size: 0.86rem;
+        padding: 14px 0;
+      }
+
+      .reel-card {
+        min-width: 190px;
+        height: 300px;
+      }
     }
   </style>
 </head>
@@ -543,8 +902,8 @@
       <div class="gallery-main-frame">
         <div class="main-portrait-img-box">
           <img id="main-gallery-view" src="assets/images/classic-wood-frame.jpg" alt="Custom Pet Portrait Master View">
-          <span style="position: absolute; top: 16px; left: 16px; background: rgba(30,26,24,0.85); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">
-            <i class="fa-solid fa-shield-heart" style="color: var(--primary);"></i> 100% Hand-Painted Likeness
+          <span class="gallery-badge">
+            <i class="fa-solid fa-shield-heart" style="color: var(--primary); margin-right: 4px;"></i> 100% Hand-Painted Likeness
           </span>
         </div>
 
@@ -567,14 +926,14 @@
         </div>
 
         <!-- Trust Note Under Gallery -->
-        <div style="margin-top: 14px; font-size: 0.88rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px;">
+        <div class="gallery-proof-note">
           <i class="fa-solid fa-comments" style="color: #25D366; font-size: 1.1rem;"></i>
           <span>See your artwork proof first, then approve with <strong>unlimited revisions</strong>.</span>
         </div>
       </div>
 
       <!-- Right Column: Interactive Step-by-Step Customizer -->
-      <div>
+      <div class="customizer-form-area">
         <div class="rating-row">
           <div style="color: var(--peternity-star); display: flex; gap: 2px;">
             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -584,7 +943,7 @@
         </div>
 
         <h1 class="product-headline">Custom Pet Portrait</h1>
-        <p style="color: var(--text-muted); font-size: 0.98rem; margin-bottom: 8px;">Turn your favorite pet snapshot into an everlasting hand-painted masterpiece.</p>
+        <p class="product-subheadline">Turn your favorite pet snapshot into an everlasting hand-painted masterpiece.</p>
 
         <div class="price-strip">
           <span class="current-price" id="display-price">$249</span>
@@ -622,27 +981,26 @@
           <div class="sizes-stack">
             <div class="size-btn active" id="size-8x10" onclick="selectSize('8x10', 249)">
               <div>
-                <strong style="font-size: 1rem; color: var(--text-color);">8" &times; 10" (Mini Keepsake)</strong>
-                <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Perfect for desks, bookshelves & gallery clusters</span>
+                <strong class="size-name">8" &times; 10" (Mini Keepsake)</strong>
+                <span class="size-desc">Perfect for desks, bookshelves & gallery clusters</span>
               </div>
-              <strong style="color: var(--primary);">$249</strong>
+              <span class="size-price-tag">$249</span>
             </div>
 
             <div class="size-btn" id="size-12x16" onclick="selectSize('12x16', 495)">
               <div>
-                <strong style="font-size: 1rem; color: var(--text-color);">12" &times; 16" (Classic Heirloom)</strong>
-                <span class="size-badge-pop">⭐ Most Popular</span>
-                <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Our flagship living room & bedroom statement</span>
+                <strong class="size-name">12" &times; 16" (Classic Heirloom) <span class="size-badge-pop">⭐ Most Popular</span></strong>
+                <span class="size-desc">Our flagship living room & bedroom statement</span>
               </div>
-              <strong style="color: var(--primary);">$495</strong>
+              <span class="size-price-tag">$495</span>
             </div>
 
             <div class="size-btn" id="size-18x24" onclick="selectSize('18x24', 895)">
               <div>
-                <strong style="font-size: 1rem; color: var(--text-color);">18" &times; 24" (Grand Masterpiece)</strong>
-                <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Statement focal point for mantels and dining rooms</span>
+                <strong class="size-name">18" &times; 24" (Grand Masterpiece)</strong>
+                <span class="size-desc">Statement focal point for mantels and dining rooms</span>
               </div>
-              <strong style="color: var(--primary);">$895</strong>
+              <span class="size-price-tag">$895</span>
             </div>
           </div>
         </div>
@@ -652,7 +1010,7 @@
           <label class="selector-label">3. Number of Pets in Portrait</label>
           <div class="options-grid-2">
             <div class="option-card-btn active" id="pets-1" onclick="selectPets(1, 0)">
-              <div class="card-icon" style="font-size: 1.3rem; margin: 0;"><i class="fa-solid fa-dog"></i></div>
+              <div class="card-icon-wrap"><i class="fa-solid fa-dog"></i></div>
               <div>
                 <span class="option-title">1 Pet</span>
                 <span class="option-sub">Included</span>
@@ -661,7 +1019,7 @@
             </div>
 
             <div class="option-card-btn" id="pets-2" onclick="selectPets(2, 95)">
-              <div class="card-icon" style="font-size: 1.3rem; margin: 0;"><i class="fa-solid fa-paw"></i></div>
+              <div class="card-icon-wrap"><i class="fa-solid fa-paw"></i></div>
               <div>
                 <span class="option-title">2 Pets (Duo)</span>
                 <span class="option-sub">+$95</span>
@@ -670,7 +1028,7 @@
             </div>
 
             <div class="option-card-btn" id="pets-3" onclick="selectPets(3, 190)">
-              <div class="card-icon" style="font-size: 1.3rem; margin: 0;"><i class="fa-solid fa-heart"></i></div>
+              <div class="card-icon-wrap"><i class="fa-solid fa-heart"></i></div>
               <div>
                 <span class="option-title">3 Pets (Trio)</span>
                 <span class="option-sub">+$190</span>
@@ -679,7 +1037,7 @@
             </div>
 
             <div class="option-card-btn" id="pets-4" onclick="selectPets(4, 285)">
-              <div class="card-icon" style="font-size: 1.3rem; margin: 0;"><i class="fa-solid fa-crown"></i></div>
+              <div class="card-icon-wrap"><i class="fa-solid fa-crown"></i></div>
               <div>
                 <span class="option-title">4+ Pets (Family)</span>
                 <span class="option-sub">+$285</span>

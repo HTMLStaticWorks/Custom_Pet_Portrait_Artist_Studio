@@ -131,6 +131,33 @@
     .social-btn-card.facebook i { color: #1877F2; }
     .social-btn-card.pinterest i { color: #E60023; }
     .social-btn-card.youtube i { color: #FF0000; }
+
+    .contact-form-card {
+      background: var(--surface-color);
+      padding: var(--spacing-6);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+    }
+    @media (max-width: 600px) {
+      .contact-form-card {
+        padding: 20px 16px;
+      }
+      .contact-info-card {
+        padding: 18px 16px;
+      }
+    }
+    @media (max-width: 400px) {
+      .social-links-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-form-card {
+        padding: 16px 12px;
+      }
+      .contact-info-item {
+        gap: 12px;
+      }
+    }
   </style>
 </head>
 
@@ -193,13 +220,13 @@
 
   <!-- Section 1: Hero -->
   <section class="hero"
-    style="background: linear-gradient(135deg, rgba(14, 14, 28, 0.85) 0%, rgba(26, 26, 46, 0.75) 100%),
-           url('assets/images/hero.jpg') center/cover no-repeat;
-           min-height: 420px; height: 45vh; display: flex; align-items: center;">
+    style="background: linear-gradient(135deg, rgba(14, 14, 28, 0.82) 0%, rgba(26, 26, 46, 0.72) 100%),
+           url('assets/images/matted-box-frame.jpg') center/cover no-repeat;
+           min-height: 400px; height: 45vh; display: flex; align-items: center;">
     <div class="container">
       <div class="hero-content" style="max-width: 700px; margin: 0 auto; text-align: center;">
         <span class="gallery-tag-pill" style="background: rgba(196, 104, 73, 0.25); color: #F2B29B; margin-bottom: 12px;">Bespoke Art Inquiry</span>
-        <h1 class="fade-in-up" style="transition-delay: 150ms;">Commission Request Form</h1>
+        <h1 class="fade-in-up" style="transition-delay: 150ms; font-size: clamp(1.75rem, 6vw, 2.75rem); word-break: break-word;">Commission Request Form</h1>
         <p class="fade-in-up" style="transition-delay: 300ms; font-size: 1.15rem; color: #FAF6F0;">
           Share your pet's photos, medium preferences, and vision. Eleanor Vance will personally review your request within 24 hours.
         </p>
@@ -213,8 +240,7 @@
       <div class="contact-grid">
 
         <!-- Form Area (Left) -->
-        <div class="fade-in-up"
-          style="background: var(--surface-color); padding: var(--spacing-6); border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.04);">
+        <div class="fade-in-up contact-form-card">
           <span class="gallery-tag-pill">Step 1 of Consultation</span>
           <h2 class="mb-4" style="font-size: 1.85rem;">Custom Portrait Request</h2>
           <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;">Please fill in the details below. We will reply with composition guidance and custom quote options.</p>

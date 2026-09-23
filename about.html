@@ -27,20 +27,26 @@
 
     /* Lumen & Gesso Hero */
     .lg-hero {
-      padding: 100px 0 60px;
+      position: relative;
+      padding: 110px 0 80px;
       text-align: center;
-      background: linear-gradient(180deg, rgba(196, 104, 73, 0.05) 0%, rgba(250, 247, 242, 0) 100%);
+      background: linear-gradient(180deg, rgba(20, 16, 14, 0.75) 0%, rgba(26, 22, 20, 0.82) 100%),
+                  url('assets/images/hero-process.jpg') center/cover no-repeat;
+      color: #FAF7F2;
     }
 
     .lg-eyebrow {
       font-family: var(--font-body);
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: var(--primary);
+      color: #F2B29B;
+      background: rgba(196, 104, 73, 0.25);
+      padding: 4px 14px;
+      border-radius: 20px;
       display: inline-block;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .lg-hero-title {
@@ -48,15 +54,15 @@
       font-size: clamp(2.4rem, 5vw, 4rem);
       font-weight: 400;
       line-height: 1.15;
-      color: var(--text-color);
+      color: #FAF7F2;
       max-width: 800px;
       margin: 0 auto 18px;
     }
 
     .lg-hero-lead {
       font-size: 1.12rem;
-      color: var(--text-muted);
-      max-width: 640px;
+      color: rgba(250, 247, 242, 0.92);
+      max-width: 660px;
       margin: 0 auto 32px;
       line-height: 1.65;
     }
@@ -494,7 +500,7 @@
       </div>
 
       <div class="lg-valueprop-item">
-        <div class="lg-valueprop-icon"><i class="fa-solid fa-shield-heart"></i></div>
+        <div class="lg-valueprop-icon"><i class="fa-solid fa-circle-check"></i></div>
         <div>
           <div class="lg-valueprop-title">Approve only when you love it</div>
           <div class="lg-valueprop-desc">Free unlimited revisions until the likeness is completely right.</div>
