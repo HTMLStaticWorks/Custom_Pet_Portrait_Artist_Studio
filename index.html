@@ -28,28 +28,47 @@
       font-family: var(--collection-sans);
     }
 
-    /* Collection Hero */
+    /* Collection Hero - Standardized Consistent Height */
     .collection-hero {
       position: relative;
-      padding: 100px 0 70px;
+      min-height: 440px !important;
+      height: 46vh !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 70px 0 !important;
       text-align: center;
       background: linear-gradient(180deg, rgba(20, 16, 14, 0.78) 0%, rgba(28, 24, 22, 0.88) 100%),
                   url('assets/images/hero-home1.jpg') center/cover no-repeat;
       border-bottom: 1px solid var(--border-color);
       color: #FAF7F2;
+      box-sizing: border-box;
     }
 
     .collection-eyebrow {
       font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 2.5px;
-      color: #F2B29B;
-      background: rgba(196, 104, 73, 0.25);
-      padding: 4px 14px;
+      letter-spacing: 2px;
+      color: #9E4327;
+      background: rgba(196, 104, 73, 0.12);
+      border: 1px solid rgba(196, 104, 73, 0.3);
+      padding: 5px 14px;
       border-radius: 20px;
       margin-bottom: 14px;
       display: inline-block;
+    }
+
+    .collection-hero .collection-eyebrow {
+      color: #FCD5C8 !important;
+      background: rgba(196, 104, 73, 0.35) !important;
+      border-color: rgba(252, 213, 200, 0.4) !important;
+    }
+
+    [data-theme="dark"] .collection-eyebrow {
+      color: #F7B7A2 !important;
+      background: rgba(196, 104, 73, 0.24) !important;
+      border-color: rgba(196, 104, 73, 0.4) !important;
     }
 
     .collection-title {
@@ -470,8 +489,9 @@
     <div class="drawer-links">
       <a href="index.html" class="active">Home</a>
       <a href="home2.html">Home 2</a>
+      <a href="about.html">About</a>
       <a href="services.html">Portfolios</a>
-      <a href="about.html">Process</a>
+      <a href="process.html">Process</a>
       <a href="pricing.html">Pricing</a>
       <a href="blog.html">Journal</a>
       <a href="contact.html">Contact</a>
@@ -491,23 +511,28 @@
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="logo">
-        <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+        <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 42px; width: auto;">
       </a>
       <div class="nav-links">
         <a href="index.html" class="active">Home</a>
         <a href="home2.html">Home 2</a>
+        <a href="about.html">About</a>
         <a href="services.html">Portfolios</a>
-        <a href="about.html">Process</a>
+        <a href="process.html">Process</a>
         <a href="pricing.html">Pricing</a>
         <a href="blog.html">Journal</a>
         <a href="contact.html">Contact</a>
       </div>
       <div class="nav-actions">
-        <a href="contact.html" class="btn btn-primary btn-nav">Commission Art</a>
-        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
-            class="fa-solid fa-right-left"></i></button>
-        <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
-            class="fa-solid fa-moon"></i></button>
+        <div class="nav-toggles">
+          <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
+              class="fa-solid fa-right-left"></i></button>
+          <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
+              class="fa-solid fa-moon"></i></button>
+        </div>
+        <div class="nav-cta-section">
+          <a href="contact.html" class="btn btn-primary btn-nav">Commission Art</a>
+        </div>
       </div>
       <button class="hamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
     </div>
@@ -751,7 +776,7 @@
             museum-grade archival surfaces with 100% devotion.
           </p>
           <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-            <a href="about.html" class="btn btn-primary">Read Commission Process</a>
+            <a href="process.html" class="btn btn-primary">Read Commission Process</a>
             <a href="contact.html" class="btn btn-outline">Send Your Photos &rarr;</a>
           </div>
         </div>
@@ -914,7 +939,7 @@
       <div class="footer-grid fade-in-up">
         <div style="text-align: inherit;">
           <a href="index.html" class="logo">
-            <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+            <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 42px; width: auto;">
           </a>
           <p class="footer-desc">Bespoke fine art pet portraiture honoring loyal companions worldwide. Hand-crafted in
             watercolor, graphite, white pencil, and oil since 2012.</p>
@@ -931,7 +956,8 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="home2.html">Home 2</a></li>
             <li><a href="services.html">Portfolio by Medium</a></li>
-            <li><a href="about.html">Commission Process</a></li>
+            <li><a href="about.html">About Atelier</a></li>
+            <li><a href="process.html">Commission Process</a></li>
             <li><a href="pricing.html">Pricing &amp; Sizes</a></li>
             <li><a href="contact.html">Request a Portrait</a></li>
           </ul>

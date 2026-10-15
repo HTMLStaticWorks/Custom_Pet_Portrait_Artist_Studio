@@ -551,31 +551,151 @@
       display: block;
     }
 
-    /* Video Reels Strip */
+    /* Video Reaction Showcase Grid - No Horizontal Scroll */
     .video-reels-strip {
-      display: flex;
-      gap: 18px;
-      overflow-x: auto;
-      padding: 16px 4px 28px;
-      scrollbar-width: thin;
-      snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 16px 0 28px;
+      overflow-x: visible;
+    }
+
+    @media (max-width: 992px) {
+      .video-reels-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+      .video-reels-strip {
+        grid-template-columns: 1fr;
+      }
     }
 
     .reel-card {
-      min-width: 230px;
-      height: 360px;
+      width: 100%;
+      height: 380px;
       border-radius: 20px;
       overflow: hidden;
       position: relative;
-      flex-shrink: 0;
-      snap-align: start;
       box-shadow: 0 10px 24px rgba(0,0,0,0.08);
       border: 3px solid #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .reel-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.14);
     }
 
     [data-theme="dark"] .reel-card {
       border-color: #38302B !important;
+    }
+
+    /* Additional Sections Styles */
+    .home2-materials-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    @media (max-width: 992px) {
+      .home2-materials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+      .home2-materials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .home2-material-card {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .home2-material-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+
+    .home2-material-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .home2-material-body {
+      padding: 20px;
+    }
+
+    /* FAQ Group */
+    .home2-faq-group {
+      max-width: 820px;
+      margin: 36px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .home2-faq-item {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+
+    .home2-faq-item.active {
+      border-color: var(--primary);
+    }
+
+    .home2-faq-btn {
+      width: 100%;
+      padding: 18px 22px;
+      text-align: left;
+      background: none;
+      border: none;
+      color: var(--text-color);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    [dir="rtl"] .home2-faq-btn {
+      text-align: right;
+    }
+
+    .home2-faq-panel {
+      display: none;
+      padding: 0 22px 20px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .home2-faq-item.active .home2-faq-panel {
+      display: block;
+    }
+
+    .home2-faq-item.active .home2-faq-icon {
+      transform: rotate(180deg);
+      color: var(--primary);
+    }
+
+    .home2-faq-icon {
+      transition: transform 0.25s ease;
+      font-size: 0.9rem;
     }
 
     .reel-card img {
@@ -830,8 +950,7 @@
       }
 
       .reel-card {
-        min-width: 190px;
-        height: 300px;
+        height: 320px;
       }
     }
   </style>
@@ -851,8 +970,9 @@
     <div class="drawer-links">
       <a href="index.html">Home</a>
       <a href="home2.html" class="active">Home 2</a>
+      <a href="about.html">About</a>
       <a href="services.html">Portfolios</a>
-      <a href="about.html">Process</a>
+      <a href="process.html">Process</a>
       <a href="pricing.html">Pricing</a>
       <a href="blog.html">Journal</a>
       <a href="contact.html">Contact</a>
@@ -872,27 +992,56 @@
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="logo">
-        <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+        <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 42px; width: auto;">
       </a>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="home2.html" class="active">Home 2</a>
+        <a href="about.html">About</a>
         <a href="services.html">Portfolios</a>
-        <a href="about.html">Process</a>
+        <a href="process.html">Process</a>
         <a href="pricing.html">Pricing</a>
         <a href="blog.html">Journal</a>
         <a href="contact.html">Contact</a>
       </div>
       <div class="nav-actions">
-        <a href="contact.html" class="btn btn-primary btn-nav">Commission Art</a>
-        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
-            class="fa-solid fa-right-left"></i></button>
-        <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
-            class="fa-solid fa-moon"></i></button>
+        <div class="nav-toggles">
+          <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
+              class="fa-solid fa-right-left"></i></button>
+          <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
+              class="fa-solid fa-moon"></i></button>
+        </div>
+        <div class="nav-cta-section">
+          <a href="contact.html" class="btn btn-primary btn-nav">Commission Art</a>
+        </div>
       </div>
       <button class="hamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
     </div>
   </nav>
+
+  <!-- Hero Section: Standardized Height & Engaging Design -->
+  <header class="hero page-hero" style="background: linear-gradient(180deg, rgba(20, 16, 14, 0.78) 0%, rgba(28, 22, 19, 0.88) 100%),
+                 url('assets/images/hero-home1.jpg') center/cover no-repeat;">
+    <div class="container">
+      <div class="hero-content">
+        <span class="collection-eyebrow" style="margin-bottom: 14px;">
+          <i class="fa-solid fa-palette" style="margin-right: 6px;"></i> Bespoke Pet Art Atelier
+        </span>
+        <h1 class="fade-in-up">Handcrafted Pet Portraits Painted with Devotion</h1>
+        <p class="fade-in-up" style="margin-bottom: 24px;">
+          Transform your beloved companion's photograph into a timeless, hand-painted fine art heirloom. 100% likeness guarantee, unlimited proof revisions, and museum-grade solid wood framing.
+        </p>
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;" class="fade-in-up">
+          <a href="#customizer-section" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-wand-magic-sparkles" style="margin-right: 8px;"></i> Configure Your Portrait
+          </a>
+          <a href="services.html" class="btn btn-outline" style="color: #fff; border-color: rgba(255,255,255,0.4);">
+            <i class="fa-solid fa-images" style="margin-right: 8px;"></i> View Portfolio by Medium
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
 
   <!-- Main Interactive Product Customizer Section -->
   <section id="customizer-section" class="customizer-container">
@@ -909,19 +1058,19 @@
 
         <div class="gallery-thumbnails-strip">
           <button class="thumb-btn active" onclick="switchGalleryImg('assets/images/classic-wood-frame.jpg', this)">
-            <img src="assets/images/classic-wood-frame.jpg" alt="Thumb 1">
+            <img src="assets/images/classic-wood-frame.jpg" alt="Framed Classical Oil Portrait">
           </button>
           <button class="thumb-btn" onclick="switchGalleryImg('assets/images/matted-box-frame.jpg', this)">
-            <img src="assets/images/matted-box-frame.jpg" alt="Thumb 2">
+            <img src="assets/images/matted-box-frame.jpg" alt="Matted Museum Box Frame">
           </button>
-          <button class="thumb-btn" onclick="switchGalleryImg('assets/images/artist-studio.jpg', this)">
-            <img src="assets/images/artist-studio.jpg" alt="Thumb 3">
+          <button class="thumb-btn" onclick="switchGalleryImg('assets/images/Duke.png', this)">
+            <img src="assets/images/Duke.png" alt="Duke Oil Portrait">
           </button>
           <button class="thumb-btn" onclick="switchGalleryImg('assets/images/Luna.png', this)">
-            <img src="assets/images/Luna.png" alt="Thumb 4">
+            <img src="assets/images/Luna.png" alt="Luna Watercolor Portrait">
           </button>
-          <button class="thumb-btn" onclick="switchGalleryImg('assets/images/FOREVER HOME.png', this)">
-            <img src="assets/images/FOREVER HOME.png" alt="Thumb 5">
+          <button class="thumb-btn" onclick="switchGalleryImg('assets/images/Chloe.png', this)">
+            <img src="assets/images/Chloe.png" alt="Chloe Memorial Portrait">
           </button>
         </div>
 
@@ -1125,14 +1274,15 @@
     </div>
   </section>
 
-  <!-- Video Reaction & Showcase Reel Section (Like Peternity) -->
+  <!-- Video Reaction & Showcase Reel Section -->
   <section class="section-padding" style="background: var(--peternity-soft); border-top: 1px solid var(--peternity-border); border-bottom: 1px solid var(--peternity-border);">
     <div class="container">
       <div class="text-center fade-in-up mb-6">
+        <span class="collection-eyebrow">Heartfelt Unboxings</span>
         <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase;">
           Pet Portraits <span style="color: var(--primary);">&gt;</span> Ordinary Gifts 😍
         </h2>
-        <p style="color: var(--text-muted); font-size: 10.5rem; max-width: 600px; margin: 0 auto; font-size: 1.05rem;">
+        <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 1.05rem;">
           Because the companions we love deserve something timeless that celebrates their spirit every single day.
         </p>
       </div>
@@ -1140,28 +1290,28 @@
       <div class="video-reels-strip fade-in-up">
         
         <div class="reel-card">
-          <img src="assets/images/Bella.png" alt="Customer unboxing video reel">
+          <img src="assets/images/Bella.png" alt="Customer unboxing video reel of Bella">
           <div class="reel-badge-tag">
             <span>"Tears of pure happiness! ❤️"</span>
           </div>
         </div>
 
         <div class="reel-card">
-          <img src="assets/images/Oliver.png" alt="Two dogs portrait">
+          <img src="assets/images/Oliver.png" alt="Two dogs portrait unboxing of Oliver & Milo">
           <div class="reel-badge-tag">
             <span>"Captured their brotherhood perfectly"</span>
           </div>
         </div>
 
         <div class="reel-card">
-          <img src="assets/images/KITTENS.png" alt="Cat portrait unboxing">
+          <img src="assets/images/KITTENS.png" alt="Cat portrait unboxing of Luna">
           <div class="reel-badge-tag">
             <span>"Luna approves her masterpiece! 🐾"</span>
           </div>
         </div>
 
         <div class="reel-card">
-          <img src="assets/images/A REAL CONNECTION.png" alt="Golden retriever portrait">
+          <img src="assets/images/A REAL CONNECTION.png" alt="Golden retriever portrait unboxing">
           <div class="reel-badge-tag">
             <span>"The eyes look so alive!"</span>
           </div>
@@ -1175,29 +1325,141 @@
   <section class="section-padding">
     <div class="container">
       <div class="text-center fade-in-up mb-8">
-        <span class="gallery-tag-pill">Simple Experience</span>
-        <h2 class="text-primary">How Peternity Works</h2>
-        <p style="max-width: 600px; margin: 0 auto;">From smartphone snapshot to gallery-worthy heirloom in three simple steps.</p>
+        <span class="collection-eyebrow">Simple Experience</span>
+        <h2 class="text-primary">How Commissioning Works</h2>
+        <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted);">From smartphone snapshot to gallery-worthy heirloom in three simple steps.</p>
       </div>
 
       <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
         <div class="card fade-in-up" style="text-align: center;">
           <div class="card-icon" style="margin: 0 auto 16px;"><i class="fa-solid fa-camera"></i></div>
           <h3 class="card-title">1. Upload Favorite Photo</h3>
-          <p>Pick a favorite photo from your phone camera roll. Any good daylight shot will work.</p>
+          <p>Pick a favorite photo from your phone camera roll. Any good daylight shot or snapshot will work.</p>
         </div>
 
         <div class="card fade-in-up" style="text-align: center; transition-delay: 100ms;">
           <div class="card-icon" style="margin: 0 auto 16px;"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
           <h3 class="card-title">2. Painted with Devotion</h3>
-          <p>Eleanor illustrates every detail and sends you a high-definition digital proof for your approval.</p>
+          <p>Eleanor illustrates every detail and sends you a high-definition digital proof for your unlimited approval.</p>
         </div>
 
         <div class="card fade-in-up" style="text-align: center; transition-delay: 200ms;">
           <div class="card-icon" style="margin: 0 auto 16px;"><i class="fa-solid fa-gift"></i></div>
           <h3 class="card-title">3. Printed, Framed & Delivered</h3>
-          <p>Crafted on museum archival cotton canvas and delivered safely right to your front door.</p>
+          <p>Crafted on museum archival cotton canvas, hand-framed, and delivered safely right to your front door.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW ADDITIONAL SECTION 1: Atelier Framing & Display Craftsmanship -->
+  <section class="section-padding" style="background: rgba(196, 104, 73, 0.04); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="text-center fade-in-up mb-6">
+        <span class="collection-eyebrow">Handcrafted Preservation</span>
+        <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);">Bespoke Framing &amp; Display Styles</h2>
+        <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto;">Every commission is handcrafted to last generations using solid hardwoods and acid-free archival mounts.</p>
+      </div>
+
+      <div class="home2-materials-grid">
+        
+        <div class="home2-material-card fade-in-up">
+          <img src="assets/images/classic-wood-frame.jpg" alt="Classic Hardwood Framed Pet Portrait">
+          <div class="home2-material-body">
+            <h4 style="font-size: 1.2rem; margin-bottom: 6px;">Classic Wood Frame</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">FSC-certified solid American Walnut, Natural Oak, or Matte Black with lightweight shatterproof UV acrylic.</p>
+          </div>
+        </div>
+
+        <div class="home2-material-card fade-in-up" style="transition-delay: 100ms;">
+          <img src="assets/images/matted-box-frame.jpg" alt="Matted Museum Box Frame Pet Portrait">
+          <div class="home2-material-body">
+            <h4 style="font-size: 1.2rem; margin-bottom: 6px;">Matted Box Frame</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Bevel-cut Snow White museum mount board offering breathing room and depth for watercolor &amp; charcoal.</p>
+          </div>
+        </div>
+
+        <div class="home2-material-card fade-in-up" style="transition-delay: 200ms;">
+          <img src="assets/images/Duke.png" alt="Belgian Linen Float Frame Pet Portrait">
+          <div class="home2-material-body">
+            <h4 style="font-size: 1.2rem; margin-bottom: 6px;">Linen Float Frame</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Stretched Belgian linen canvas suspended inside a deep floating wood tray for an ultra-luxury gallery feel.</p>
+          </div>
+        </div>
+
+        <div class="home2-material-card fade-in-up" style="transition-delay: 300ms;">
+          <img src="assets/images/after.png" alt="Gallery Wrapped Canvas Pet Portrait">
+          <div class="home2-material-body">
+            <h4 style="font-size: 1.2rem; margin-bottom: 6px;">Gallery Wrapped Canvas</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Clean, frameless 1.5" deep canvas with artwork mirrored around the edges for a contemporary aesthetic.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW ADDITIONAL SECTION 2: Frequently Asked Questions & Collector Confidence -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center fade-in-up mb-6">
+        <span class="collection-eyebrow">Collector Help &amp; FAQs</span>
+        <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);">Frequently Asked Questions</h2>
+        <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto;">Everything you need to know about photo selection, revision proofs, and safe worldwide delivery.</p>
+      </div>
+
+      <div class="home2-faq-group fade-in-up">
+        
+        <div class="home2-faq-item active">
+          <button class="home2-faq-btn" onclick="toggleHome2Faq(this)">
+            <span>Can you combine multiple pets from separate photos into one portrait?</span>
+            <i class="fa-solid fa-chevron-down home2-faq-icon"></i>
+          </button>
+          <div class="home2-faq-panel" style="display: block;">
+            Yes! Over 40% of our orders combine pets from separate photos. Our master painters specialize in harmonizing perspective, scale, lighting, and eye contact so they appear naturally together.
+          </div>
+        </div>
+
+        <div class="home2-faq-item">
+          <button class="home2-faq-btn" onclick="toggleHome2Faq(this)">
+            <span>What if my pet has passed away or I only have old phone photos?</span>
+            <i class="fa-solid fa-chevron-down home2-faq-icon"></i>
+          </button>
+          <div class="home2-faq-panel">
+            Memorial portraits are our most cherished specialty. We can work with vintage photos, screenshots, or slightly blurry snapshots. Our artists reconstruct fur details, eye reflections, and color nuances from our anatomical mastery.
+          </div>
+        </div>
+
+        <div class="home2-faq-item">
+          <button class="home2-faq-btn" onclick="toggleHome2Faq(this)">
+            <span>How does the digital proof and revision process work?</span>
+            <i class="fa-solid fa-chevron-down home2-faq-icon"></i>
+          </button>
+          <div class="home2-faq-panel">
+            Within 24–48 hours of your order, you will receive a secure private proof link. You can approve it right away or request tweaks to eye reflections, coat tones, background, or collar details with free unlimited revisions.
+          </div>
+        </div>
+
+        <div class="home2-faq-item">
+          <button class="home2-faq-btn" onclick="toggleHome2Faq(this)">
+            <span>What is your 100% Love It Guarantee?</span>
+            <i class="fa-solid fa-chevron-down home2-faq-icon"></i>
+          </button>
+          <div class="home2-faq-panel">
+            We never print or ship until you are head-over-heels in love with your portrait proof. If for any reason we cannot achieve a likeness that makes your heart melt, we will gladly refund 100% of your commission.
+          </div>
+        </div>
+
+        <div class="home2-faq-item">
+          <button class="home2-faq-btn" onclick="toggleHome2Faq(this)">
+            <span>How long does painting, framing, and delivery take?</span>
+            <i class="fa-solid fa-chevron-down home2-faq-icon"></i>
+          </button>
+          <div class="home2-faq-panel">
+            Digital proofs are ready in 1–2 business days. Once approved, artisan printing, custom hardwood framing, and quality assurance take 3–5 business days. Transit time is typically 3–5 days with fully insured express tracking.
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1208,7 +1470,7 @@
       <div class="footer-grid fade-in-up">
         <div style="text-align: inherit;">
           <a href="index.html" class="logo">
-            <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+            <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 42px; width: auto;">
           </a>
           <p class="footer-desc">Bespoke fine art pet portraiture honoring loyal companions worldwide. Hand-crafted in oil, watercolor, and digital Giclée since 2012.</p>
           <div class="social-icons">
@@ -1223,9 +1485,10 @@
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="home2.html">Home 2</a></li>
+            <li><a href="about.html">About Atelier</a></li>
             <li><a href="services.html">Portfolio by Medium</a></li>
-            <li><a href="about.html">Commission Process</a></li>
-            <li><a href="pricing.html">Pricing & Sizes</a></li>
+            <li><a href="process.html">Commission Process</a></li>
+            <li><a href="pricing.html">Pricing &amp; Sizes</a></li>
             <li><a href="contact.html">Request a Portrait</a></li>
           </ul>
         </div>
@@ -1235,7 +1498,7 @@
             <li><a href="services.html#oil">Classical Oil on Linen</a></li>
             <li><a href="services.html#watercolor">Luminous Watercolor</a></li>
             <li><a href="services.html#digital">Fine Art Digital Giclée</a></li>
-            <li><a href="services.html#charcoal">Charcoal & Graphite</a></li>
+            <li><a href="services.html#charcoal">Charcoal &amp; Graphite</a></li>
             <li><a href="services.html#memorial">Memorial Portraits</a></li>
           </ul>
         </div>
@@ -1249,7 +1512,7 @@
         </div>
       </div>
       <div class="footer-bottom fade-in-up">
-        <p>&copy; 2026 PawVinci Atelier &times; Peternity. Custom Pet Portrait Artist Studio. All rights reserved.</p>
+        <p>&copy; 2026 PawVinci Atelier. Custom Pet Portrait Artist Studio. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -1306,6 +1569,23 @@
       } else {
         body.classList.add('open');
         if (icon) icon.className = 'fa-solid fa-chevron-up';
+      }
+    }
+
+    function toggleHome2Faq(btn) {
+      const item = btn.closest('.home2-faq-item');
+      const panel = item.querySelector('.home2-faq-panel');
+      const isOpen = item.classList.contains('active');
+
+      document.querySelectorAll('.home2-faq-item').forEach(i => {
+        i.classList.remove('active');
+        const p = i.querySelector('.home2-faq-panel');
+        if (p) p.style.display = 'none';
+      });
+
+      if (!isOpen) {
+        item.classList.add('active');
+        if (panel) panel.style.display = 'block';
       }
     }
 

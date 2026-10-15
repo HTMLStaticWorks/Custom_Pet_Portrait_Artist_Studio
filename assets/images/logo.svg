@@ -7,9 +7,9 @@
     </linearGradient>
     <style>
       .logo-brand { fill: #C46849; }
-      .logo-sub { fill: #756B65; }
+      .logo-sub { fill: #1E1714; font-weight: 800; }
       @media (prefers-color-scheme: dark) {
-        .logo-sub { fill: #D6CCC4; }
+        .logo-sub { fill: #FAF5F0; }
       }
     </style>
   </defs>
@@ -26,7 +26,7 @@
     <!-- Artist Brush -->
     <path d="M28 28L38 38M36 36l3-3a1.5 1.5 0 012.1 2.1l-3 3-2.1-2.1z" stroke="#C46849" stroke-width="2.5" stroke-linecap="round"/>
   </g>
-  <!-- Studio Text -->
-  <text x="48" y="27" font-family="'Playfair Display', Georgia, serif" font-size="21" font-weight="700" class="logo-brand" letter-spacing="0.5">PawVinci</text>
-  <text x="49" y="41" font-family="'DM Sans', sans-serif" font-size="8.5" font-weight="600" class="logo-sub" letter-spacing="2.8">PET PORTRAIT ATELIER</text>
+  <!-- Studio Text with Enhanced Prominent Slogan -->
+  <text x="48" y="26" font-family="'Playfair Display', Georgia, serif" font-size="22" font-weight="700" class="logo-brand" letter-spacing="0.5">PawVinci</text>
+  <text x="49" y="41" font-family="'DM Sans', -apple-system, sans-serif" font-size="10" font-weight="800" class="logo-sub" letter-spacing="2.2">PET PORTRAIT ATELIER</text>
 </svg>

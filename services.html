@@ -18,27 +18,36 @@
     .gallery-tag-pill {
       display: inline-block;
       font-size: 0.75rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--primary);
       background: rgba(196, 104, 73, 0.12);
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: 20px;
       margin-bottom: 8px;
     }
 
     .medium-badge {
-      display: inline-flex;
-      align-items: center;
+      display: inline-flex !important;
+      align-items: center !important;
+      align-self: flex-start !important;
+      width: fit-content !important;
+      max-width: fit-content !important;
       gap: 6px;
-      font-size: 0.8rem;
-      font-weight: 600;
+      font-size: 0.75rem !important;
+      font-weight: 700 !important;
       color: var(--primary);
       background: rgba(196, 104, 73, 0.12);
-      padding: 4px 12px;
+      padding: 4px 10px !important;
       border-radius: 20px;
       margin-bottom: 12px;
+    }
+
+    .medium-hero-card > div:last-child {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
     }
 
     .medium-feature-list {
@@ -119,8 +128,9 @@
     <div class="drawer-links">
       <a href="index.html">Home</a>
       <a href="home2.html">Home 2</a>
+      <a href="about.html">About</a>
       <a href="services.html" class="active">Portfolios</a>
-      <a href="about.html">Process</a>
+      <a href="process.html">Process</a>
       <a href="pricing.html">Pricing</a>
       <a href="blog.html">Journal</a>
       <a href="contact.html">Contact</a>
@@ -140,37 +150,41 @@
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="logo">
-        <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+        <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 42px; width: auto;">
       </a>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="home2.html">Home 2</a>
+        <a href="about.html">About</a>
         <a href="services.html" class="active">Portfolios</a>
-        <a href="about.html">Process</a>
+        <a href="process.html">Process</a>
         <a href="pricing.html">Pricing</a>
         <a href="blog.html">Journal</a>
         <a href="contact.html">Contact</a>
       </div>
       <div class="nav-actions">
-        <a href="contact.html" class="btn btn-primary btn-nav">Commission Art</a>
-        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
-            class="fa-solid fa-right-left"></i></button>
-        <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
-            class="fa-solid fa-moon"></i></button>
+        <div class="nav-toggles">
+          <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
+              class="fa-solid fa-right-left"></i></button>
+          <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
+              class="fa-solid fa-moon"></i></button>
+        </div>
+        <div class="nav-cta-section">
+          <a href="contact.html" class="btn btn-primary btn-nav">Commission Art</a>
+        </div>
       </div>
       <button class="hamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
     </div>
   </nav>
 
-  <!-- Section 1: Hero -->
-  <section class="hero" style="background: linear-gradient(135deg, rgba(14, 14, 28, 0.82) 0%, rgba(26, 26, 46, 0.72) 100%),
-           url('assets/images/classic-wood-frame.jpg') center/cover no-repeat;
-           min-height: 480px; height: 50vh; display: flex; align-items: center;">
+  <!-- Section 1: Hero (Standardized Height & Relevant Background) -->
+  <header class="hero page-hero" style="background: linear-gradient(135deg, rgba(20, 16, 14, 0.82) 0%, rgba(28, 22, 19, 0.84) 100%),
+           url('assets/images/hero-home1.jpg') center/cover no-repeat;">
     <div class="container">
-      <div class="hero-content" style="max-width: 700px; margin: 0 auto; text-align: center;">
-        <span class="gallery-tag-pill"
-          style="background: rgba(196, 104, 73, 0.25); color: #F2B29B; margin-bottom: 12px;">Curated Atelier
-          Portfolio</span>
+      <div class="hero-content">
+        <span class="collection-eyebrow" style="margin-bottom: 14px;">
+          Curated Atelier Portfolios
+        </span>
         <h1 class="fade-in-up" style="transition-delay: 150ms;">Portfolio by Medium</h1>
         <p class="fade-in-up" style="transition-delay: 300ms; font-size: 1.15rem; color: #FAF6F0;">
           Discover our specialized portrait collections rendered in Classical Oil, Luminous Watercolor, Fine Art Digital
@@ -178,7 +192,7 @@
         </p>
       </div>
     </div>
-  </section>
+  </header>
 
   <!-- Section 2: Intro -->
   <section class="section-padding pb-0 text-center">
@@ -201,7 +215,7 @@
         <!-- Medium 1: Classical Oil -->
         <div id="oil" class="medium-hero-card fade-in-up">
           <div style="height: 250px; overflow: hidden; position: relative;">
-            <img src="assets/images/classic-wood-frame.jpg" alt="Oil Pet Portrait"
+            <img src="assets/images/Luna.png" alt="Classical Oil Pet Portrait on Canvas"
               style="width: 100%; height: 100%; object-fit: cover;">
             <span
               style="position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.75); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem;">Archival
@@ -228,7 +242,7 @@
         <!-- Medium 2: Luminous Watercolor -->
         <div id="watercolor" class="medium-hero-card fade-in-up" style="transition-delay: 100ms;">
           <div style="height: 250px; overflow: hidden; position: relative;">
-            <img src="assets/images/matted-box-frame.jpg" alt="Watercolor Pet Portrait"
+            <img src="assets/images/Chloe.png" alt="Luminous Watercolor Pet Portrait of Cat"
               style="width: 100%; height: 100%; object-fit: cover;">
             <span
               style="position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.75); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem;">100%
@@ -309,7 +323,7 @@
         <!-- Medium 5: Multi-Pet Duo / Trio -->
         <div id="multi-pet" class="medium-hero-card fade-in-up" style="transition-delay: 100ms;">
           <div style="height: 250px; overflow: hidden; position: relative;">
-            <img src="assets/images/Milo.png" alt="Multi-Pet Portrait"
+            <img src="assets/images/ENDLESS JOY.png" alt="Multi-Pet Harmony Composition"
               style="width: 100%; height: 100%; object-fit: cover;">
             <span
               style="position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.75); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem;">Combined
@@ -336,7 +350,7 @@
         <!-- Medium 6: Memorial Art -->
         <div id="memorial" class="medium-hero-card fade-in-up" style="transition-delay: 200ms;">
           <div style="height: 250px; overflow: hidden; position: relative;">
-            <img src="assets/images/Chloe.png" alt="Memorial Pet Portrait"
+            <img src="assets/images/UNCONDITIONAL LOVE.png" alt="Memorial Pet Portrait Tribute"
               style="width: 100%; height: 100%; object-fit: cover;">
             <span
               style="position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.75); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem;">Tribute
@@ -434,7 +448,7 @@
       <div class="footer-grid fade-in-up">
         <div style="text-align: inherit;">
           <a href="index.html" class="logo">
-            <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+            <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 42px; width: auto;">
           </a>
           <p class="footer-desc">Bespoke fine art pet portraiture honoring loyal companions worldwide. Hand-crafted in
             oil, watercolor, and digital Giclée since 2012.</p>
@@ -450,9 +464,10 @@
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="home2.html">Home 2</a></li>
+            <li><a href="about.html">About Atelier</a></li>
             <li><a href="services.html">Portfolio by Medium</a></li>
-            <li><a href="about.html">Commission Process</a></li>
-            <li><a href="pricing.html">Pricing & Sizes</a></li>
+            <li><a href="process.html">Commission Process</a></li>
+            <li><a href="pricing.html">Pricing &amp; Sizes</a></li>
             <li><a href="contact.html">Request a Portrait</a></li>
           </ul>
         </div>

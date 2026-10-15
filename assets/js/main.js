@@ -1,4 +1,15 @@
 /* 1. Theme Toggle */
+const updateLogo = (theme) => {
+  const logos = document.querySelectorAll('.logo img');
+  logos.forEach(img => {
+    if (theme === 'dark') {
+      img.src = 'assets/images/logo-dark.svg';
+    } else {
+      img.src = 'assets/images/logo.svg';
+    }
+  });
+};
+
 const toggleTheme = () => {
   const html = document.documentElement;
   const currentTheme = html.getAttribute('data-theme');
@@ -12,6 +23,8 @@ const toggleTheme = () => {
     btn.innerHTML = newTheme === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
     btn.setAttribute('title', newTheme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode');
   });
+
+  updateLogo(newTheme);
 };
 
 const initTheme = () => {
@@ -31,6 +44,8 @@ const initTheme = () => {
     btn.setAttribute('title', currentTheme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode');
     btn.addEventListener('click', toggleTheme);
   });
+
+  updateLogo(currentTheme);
 };
 
 /* 2. RTL Toggle */

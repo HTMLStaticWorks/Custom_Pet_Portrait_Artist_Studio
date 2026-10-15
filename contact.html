@@ -51,6 +51,28 @@
     .form-select:focus, select.form-control:focus {
       border-color: var(--primary);
     }
+    .form-select option, select.form-control option {
+      background-color: var(--surface-color);
+      color: var(--text-color);
+      padding: 8px 12px;
+    }
+    [data-theme="dark"] .form-select,
+    [data-theme="dark"] select.form-control {
+      background-color: #25201D !important;
+      color: #FAF6F0 !important;
+      border-color: #4A3E39 !important;
+    }
+    [data-theme="dark"] .form-select option,
+    [data-theme="dark"] select.form-control option {
+      background-color: #25201D !important;
+      color: #FAF6F0 !important;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-8);
+      align-items: start !important;
+    }
     .contact-info-card {
       background: var(--surface-color);
       border: 1px solid var(--border-color);
@@ -60,6 +82,9 @@
       box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
       display: flex;
       flex-direction: column;
+    }
+    .contact-info-card:last-child {
+      margin-bottom: 0;
     }
     .contact-info-item {
       display: flex;
@@ -175,8 +200,9 @@
     <div class="drawer-links">
       <a href="index.html">Home</a>
       <a href="home2.html">Home 2</a>
+      <a href="about.html">About</a>
       <a href="services.html">Portfolios</a>
-      <a href="about.html">Process</a>
+      <a href="process.html">Process</a>
       <a href="pricing.html">Pricing</a>
       <a href="blog.html">Journal</a>
       <a href="contact.html" class="active">Contact</a>
@@ -196,46 +222,50 @@
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="logo">
-        <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+        <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 42px; width: auto;">
       </a>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="home2.html">Home 2</a>
+        <a href="about.html">About</a>
         <a href="services.html">Portfolios</a>
-        <a href="about.html">Process</a>
+        <a href="process.html">Process</a>
         <a href="pricing.html">Pricing</a>
         <a href="blog.html">Journal</a>
         <a href="contact.html" class="active">Contact</a>
       </div>
       <div class="nav-actions">
-        <a href="contact.html" class="btn btn-primary btn-nav">Commission Art</a>
-        <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
-            class="fa-solid fa-right-left"></i></button>
-        <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
-            class="fa-solid fa-moon"></i></button>
+        <div class="nav-toggles">
+          <button class="btn-icon rtl-toggle" aria-label="Toggle RTL" title="Toggle RTL"><i
+              class="fa-solid fa-right-left"></i></button>
+          <button class="btn-icon theme-toggle" aria-label="Toggle dark mode" title="Toggle Theme"><i
+              class="fa-solid fa-moon"></i></button>
+        </div>
+        <div class="nav-cta-section">
+          <a href="contact.html" class="btn btn-primary btn-nav">Commission Art</a>
+        </div>
       </div>
       <button class="hamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
     </div>
   </nav>
 
-  <!-- Section 1: Hero -->
-  <section class="hero"
-    style="background: linear-gradient(135deg, rgba(14, 14, 28, 0.82) 0%, rgba(26, 26, 46, 0.72) 100%),
-           url('assets/images/matted-box-frame.jpg') center/cover no-repeat;
-           min-height: 400px; height: 45vh; display: flex; align-items: center;">
+  <!-- Section 1: Hero (Standardized Height & Relevant Studio Background) -->
+  <header class="hero page-hero"
+    style="background: linear-gradient(135deg, rgba(20, 16, 14, 0.82) 0%, rgba(28, 22, 19, 0.84) 100%),
+           url('assets/images/artist-studio.jpg') center/cover no-repeat;">
     <div class="container">
-      <div class="hero-content" style="max-width: 700px; margin: 0 auto; text-align: center;">
-        <span class="gallery-tag-pill" style="background: rgba(196, 104, 73, 0.25); color: #F2B29B; margin-bottom: 12px;">Bespoke Art Inquiry</span>
+      <div class="hero-content">
+        <span class="collection-eyebrow" style="margin-bottom: 14px;">Bespoke Art Inquiry</span>
         <h1 class="fade-in-up" style="transition-delay: 150ms; font-size: clamp(1.75rem, 6vw, 2.75rem); word-break: break-word;">Commission Request Form</h1>
         <p class="fade-in-up" style="transition-delay: 300ms; font-size: 1.15rem; color: #FAF6F0;">
           Share your pet's photos, medium preferences, and vision. Eleanor Vance will personally review your request within 24 hours.
         </p>
       </div>
     </div>
-  </section>
+  </header>
 
   <!-- Section 2: Contact Form & Info -->
-  <section class="section-padding">
+  <section class="section-padding" style="padding: 50px 0 60px;">
     <div class="container">
       <div class="contact-grid">
 
@@ -476,7 +506,7 @@
       <div class="footer-grid fade-in-up">
         <div style="text-align: inherit;">
           <a href="index.html" class="logo">
-            <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 38px; width: auto;">
+            <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 42px; width: auto;">
           </a>
           <p class="footer-desc">Bespoke fine art pet portraiture honoring loyal companions worldwide. Hand-crafted in oil, watercolor, and digital Giclée since 2012.</p>
           <div class="social-icons">
@@ -491,9 +521,10 @@
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="home2.html">Home 2</a></li>
+            <li><a href="about.html">About Atelier</a></li>
             <li><a href="services.html">Portfolio by Medium</a></li>
-            <li><a href="about.html">Commission Process</a></li>
-            <li><a href="pricing.html">Pricing & Sizes</a></li>
+            <li><a href="process.html">Commission Process</a></li>
+            <li><a href="pricing.html">Pricing &amp; Sizes</a></li>
             <li><a href="contact.html">Request a Portrait</a></li>
           </ul>
         </div>
