@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawVinci — New Atelier Paw Logo System</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .showcase-body {
+      background: var(--bg-light);
+      padding: 60px 20px;
+      color: var(--text-dark);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .showcase-container {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .showcase-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .showcase-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(196, 104, 73, 0.12);
+      color: #C46849;
+      border-radius: 99px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .showcase-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 36px;
+      margin-bottom: 32px;
+      border: 1px solid #EAE0D6;
+      box-shadow: 0 10px 30px rgba(45, 37, 34, 0.05);
+    }
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .palette-swatch {
+      border-radius: 12px;
+      padding: 16px 12px;
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 768px) {
+      .preview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .preview-box {
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      min-height: 140px;
+    }
+    .box-light-theme {
+      background: #FAF7F2;
+      border: 1px solid #E5DCD3;
+    }
+    .box-dark-theme {
+      background: #25201D;
+      border: 1px solid #38302B;
+    }
+    .browser-tab-simulation {
+      background: #1E1A18;
+      border-radius: 12px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #FAF6F0;
+      font-size: 0.9rem;
+      font-weight: 600;
+      max-width: 380px;
+      margin: 16px auto 0;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+  </style>
+</head>
+<body class="showcase-body">
+  <div class="showcase-container">
+    <div class="showcase-header">
+      <span class="showcase-badge">Brand Identity Update</span>
+      <h1 style="font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 12px; color: #2D2522;">New Layered Atelier Paw Logo</h1>
+      <p style="color: #6D645D; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+        Custom crafted paper-cut layered paw icon adapted to the warm PawVinci atelier color theme across all pages, footers, and favicons.
+      </p>
+    </div>
+
+    <!-- Active Website Color Palette -->
+    <div class="showcase-card">
+      <h2 style="font-size: 1.3rem; margin-bottom: 8px;">Atelier Color Harmony</h2>
+      <p style="color: #6D645D; font-size: 0.92rem;">Derived directly from the studio's brand guidelines:</p>
+      <div class="palette-grid">
+        <div class="palette-swatch" style="background: #C46849; color: #fff;">
+          Terracotta<br><span style="font-weight: 400; opacity: 0.9;">#C46849</span>
+        </div>
+        <div class="palette-swatch" style="background: #DE8667; color: #fff;">
+          Light Clay<br><span style="font-weight: 400; opacity: 0.9;">#DE8667</span>
+        </div>
+        <div class="palette-swatch" style="background: #F7BA55; color: #332;">
+          Amber Gold<br><span style="font-weight: 400; opacity: 0.9;">#F7BA55</span>
+        </div>
+        <div class="palette-swatch" style="background: #6E8C76; color: #fff;">
+          Artist Sage<br><span style="font-weight: 400; opacity: 0.9;">#6E8C76</span>
+        </div>
+        <div class="palette-swatch" style="background: #9C3A1C; color: #fff;">
+          Rust Sienna<br><span style="font-weight: 400; opacity: 0.9;">#9C3A1C</span>
+        </div>
+        <div class="palette-swatch" style="background: #25201D; color: #FAF6F0;">
+          Dark Atelier<br><span style="font-weight: 400; opacity: 0.9;">#25201D</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Primary Brand Lockup (Light vs Dark) -->
+    <div class="showcase-card">
+      <h2 style="font-size: 1.3rem; margin-bottom: 16px;">Primary Logo Lockup (SVG Vector)</h2>
+      <div class="preview-grid">
+        <div class="preview-box box-light-theme">
+          <img src="assets/images/logo.svg" alt="PawVinci Logo Light" style="height: 44px; width: auto;">
+          <span style="font-size: 0.78rem; font-weight: 700; color: #8C8076; text-transform: uppercase;">Light Mode Navbar & Pages</span>
+        </div>
+        <div class="preview-box box-dark-theme">
+          <img src="assets/images/logo-dark.svg" alt="PawVinci Logo Dark" style="height: 44px; width: auto;">
+          <span style="font-size: 0.78rem; font-weight: 700; color: #BAAFA6; text-transform: uppercase;">Dark Mode Navbar & Footer</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Favicon & Standalone Icon -->
+    <div class="showcase-card">
+      <h2 style="font-size: 1.3rem; margin-bottom: 16px;">Favicon & Standalone App Icon</h2>
+      <div class="preview-grid">
+        <div class="preview-box box-light-theme">
+          <img src="assets/images/favicon.svg" alt="PawVinci Favicon" style="height: 64px; width: 64px;">
+          <span style="font-size: 0.78rem; font-weight: 700; color: #8C8076;">Favicon (64×64 SVG)</span>
+        </div>
+        <div class="preview-box box-light-theme">
+          <img src="assets/images/logo-icon.svg" alt="PawVinci Icon" style="height: 64px; width: 64px;">
+          <span style="font-size: 0.78rem; font-weight: 700; color: #8C8076;">Standalone Sticker Icon (52×52)</span>
+        </div>
+      </div>
+
+      <div class="browser-tab-simulation">
+        <img src="assets/images/favicon.svg" alt="Favicon" style="height: 20px; width: 20px;">
+        <span>PawVinci &times; Pet Portrait Atelier</span>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 36px;">
+      <a href="index.html" class="btn btn-primary" style="padding: 14px 28px; font-weight: 700; border-radius: 99px;">Back to Website Homepage</a>
+    </div>
+  </div>
+</body>
+</html>

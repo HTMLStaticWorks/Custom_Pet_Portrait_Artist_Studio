@@ -1,25 +1,168 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" width="240" height="50" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 50" width="250" height="50" fill="none">
   <defs>
-    <linearGradient id="terracottaGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#EAA186" />
-      <stop offset="50%" stop-color="#DE8667" />
-      <stop offset="100%" stop-color="#C46849" />
+    <!-- Toe 1: Luminous Atelier Sage Gradient -->
+    <linearGradient id="toeSageGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9BC4AB" />
+      <stop offset="100%" stop-color="#67917A" />
     </linearGradient>
+    <linearGradient id="toeSageDarkD" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#557C66" />
+      <stop offset="100%" stop-color="#365343" />
+    </linearGradient>
+
+    <!-- Toe 2: Radiant Golden Amber Gradient -->
+    <linearGradient id="toeAmberGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFCA68" />
+      <stop offset="100%" stop-color="#F29C49" />
+    </linearGradient>
+    <linearGradient id="toeAmberDarkD" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DE822E" />
+      <stop offset="100%" stop-color="#BA5F18" />
+    </linearGradient>
+
+    <!-- Toe 3: Warm Terracotta Gradient -->
+    <linearGradient id="toeTerraGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FA9773" />
+      <stop offset="100%" stop-color="#DE6E49" />
+    </linearGradient>
+    <linearGradient id="toeTerraDarkD" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#BD512E" />
+      <stop offset="100%" stop-color="#98391A" />
+    </linearGradient>
+
+    <!-- Toe 4: Rust / Burnt Sienna Gradient -->
+    <linearGradient id="toeRustGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E27753" />
+      <stop offset="100%" stop-color="#B84E2C" />
+    </linearGradient>
+    <linearGradient id="toeRustDarkD" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9C3A1C" />
+      <stop offset="100%" stop-color="#73250D" />
+    </linearGradient>
+
+    <!-- Palm Pad Stepped Gradients for Dark Theme -->
+    <linearGradient id="padLayer1Dark" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#EAA186" />
+      <stop offset="60%" stop-color="#D36B48" />
+      <stop offset="100%" stop-color="#A94729" />
+    </linearGradient>
+    <linearGradient id="padLayer2Dark" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#B85231" />
+      <stop offset="100%" stop-color="#88331C" />
+    </linearGradient>
+    <linearGradient id="padLayer3Dark" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#7A2B18" />
+      <stop offset="100%" stop-color="#55190D" />
+    </linearGradient>
+    <linearGradient id="padLayer4Dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B150D" />
+      <stop offset="100%" stop-color="#220E09" />
+    </linearGradient>
+    <linearGradient id="padCoreSageDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9BC4AB" />
+      <stop offset="100%" stop-color="#67917A" />
+    </linearGradient>
+
+    <filter id="stickerShadowDark" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
   </defs>
-  <!-- Artistic Palette & Paw Icon -->
-  <g transform="translate(4, 5)">
-    <!-- Palette shape -->
-    <path d="M20 2C9.5 2 1 10.5 1 21c0 8.3 5.7 15.3 13.5 17.2 1.2.3 2.5-.6 2.5-1.9v-1.8c0-2.2 1.8-4 4-4h2.5c4.7 0 8.5-3.8 8.5-8.5 0-1.5-.4-2.9-1.1-4.1C36.8 9.5 29 2 20 2z" fill="url(#terracottaGradDark)"/>
-    <!-- Palette thumb hole -->
-    <circle cx="9" cy="27" r="3.2" fill="#25201D"/>
-    <!-- Color dabs / Paw pads inside palette -->
-    <circle cx="15" cy="11" r="2.2" fill="#FAF5F0"/>
-    <circle cx="21" cy="9" r="2.2" fill="#FAF5F0"/>
-    <circle cx="27" cy="12" r="2.2" fill="#FAF5F0"/>
-    <!-- Artist Brush -->
-    <path d="M28 28L38 38M36 36l3-3a1.5 1.5 0 012.1 2.1l-3 3-2.1-2.1z" stroke="#EAA186" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Layered Papercut Paw Icon Emblem -->
+  <g transform="translate(3, 2.5)">
+    <!-- Crisp Ivory Sticker Contour Outline -->
+    <g filter="url(#stickerShadowDark)">
+      <path d="
+        M 7 13.5 C 5 8 9 3 13 4 C 15.5 4.8 17 8 16 13
+        C 16.5 10 18.5 5 22 4 C 25.5 3 28 6.5 27 12
+        C 28 7 31 3.5 34.5 4.5 C 38 5.5 39.5 10 39 13.5
+        C 40.5 9 44.5 10.5 46.5 15 C 48.5 19.5 46 24 43 25.5
+        C 45 28.5 46 33.5 44 38 C 42 42.5 37 45.5 31.5 44.5
+        C 28 44 26 42 24 42 C 22 42 20 44 16.5 44.5
+        C 11 45.5 6 42.5 4 38 C 2 33.5 3 28.5 5 25.5
+        C 2 24 -0.5 19.5 1.5 15 C 3 11 6.5 9.5 8 13.5 Z
+      " fill="#FAF6F0" stroke="#FAF6F0" stroke-width="1.2" stroke-linejoin="round" />
+    </g>
+
+    <!-- Toe 1 -->
+    <g transform="translate(10, 14) rotate(-26)">
+      <ellipse cx="0" cy="0" rx="3.8" ry="6.2" fill="#1E2B24" />
+      <path d="M 0 -6.2 A 3.8 6.2 0 0 0 0 6.2 Z" fill="url(#toeSageGradDark)" />
+      <path d="M 0 -6.2 A 3.8 6.2 0 0 1 0 6.2 Z" fill="url(#toeSageDarkD)" />
+      <ellipse cx="0" cy="0" rx="2.5" ry="4.5" fill="none" stroke="#17221C" stroke-width="0.6" opacity="0.4" />
+    </g>
+
+    <!-- Toe 2 -->
+    <g transform="translate(19.5, 9) rotate(-9)">
+      <ellipse cx="0" cy="0" rx="4.2" ry="7" fill="#542606" />
+      <path d="M 0 -7 A 4.2 7 0 0 0 0 7 Z" fill="url(#toeAmberGradDark)" />
+      <path d="M 0 -7 A 4.2 7 0 0 1 0 7 Z" fill="url(#toeAmberDarkD)" />
+      <ellipse cx="0" cy="0" rx="2.8" ry="5.2" fill="none" stroke="#3D1A04" stroke-width="0.6" opacity="0.35" />
+    </g>
+
+    <!-- Toe 3 -->
+    <g transform="translate(30.5, 9) rotate(9)">
+      <ellipse cx="0" cy="0" rx="4.2" ry="7" fill="#461809" />
+      <path d="M 0 -7 A 4.2 7 0 0 0 0 7 Z" fill="url(#toeTerraGradDark)" />
+      <path d="M 0 -7 A 4.2 7 0 0 1 0 7 Z" fill="url(#toeTerraDarkD)" />
+      <ellipse cx="0" cy="0" rx="2.8" ry="5.2" fill="none" stroke="#310F04" stroke-width="0.6" opacity="0.35" />
+    </g>
+
+    <!-- Toe 4 -->
+    <g transform="translate(40, 14) rotate(26)">
+      <ellipse cx="0" cy="0" rx="3.8" ry="6.2" fill="#3D1206" />
+      <path d="M 0 -6.2 A 3.8 6.2 0 0 0 0 6.2 Z" fill="url(#toeRustGradDark)" />
+      <path d="M 0 -6.2 A 3.8 6.2 0 0 1 0 6.2 Z" fill="url(#toeRustDarkD)" />
+      <ellipse cx="0" cy="0" rx="2.5" ry="4.5" fill="none" stroke="#2B0A03" stroke-width="0.6" opacity="0.35" />
+    </g>
+
+    <!-- Main Pad Contours -->
+    <path d="
+      M 17 21 C 21 21 23 23 25 23 C 27 23 29 21 33 21
+      C 39 21 42 25 41 31 C 40 37 36 42 32 42.5
+      C 28 43 26 41 25 41 C 24 41 22 43 18 42.5
+      C 14 42 10 37 9 31 C 8 25 11 21 17 21 Z
+    " fill="#150906" />
+
+    <path d="
+      M 17 20.5 C 21 20.5 23 22.5 25 22.5 C 27 22.5 29 20.5 33 20.5
+      C 38.5 20.5 41.5 24.5 40.5 30.5 C 39.5 36.5 35.5 41.5 31.5 42
+      C 27.5 42.5 25.5 40.5 25 40.5 C 24.5 40.5 22.5 42.5 18.5 42
+      C 14.5 41.5 10.5 36.5 9.5 30.5 C 8.5 24.5 11.5 20.5 17 20.5 Z
+    " fill="url(#padLayer1Dark)" />
+
+    <path d="
+      M 18.2 23 C 21.5 23 23.2 24.5 25 24.5 C 26.8 24.5 28.5 23 31.8 23
+      C 36.2 23 38.5 26.5 37.8 31.2 C 37 36 33.8 39.8 30.5 40.2
+      C 27.2 40.6 25.5 39 25 39 C 24.5 39 22.8 40.6 19.5 40.2
+      C 16.2 39.8 13 36 12.2 31.2 C 11.5 26.5 13.8 23 18.2 23 Z
+    " fill="url(#padLayer2Dark)" />
+
+    <path d="
+      M 19.5 25.5 C 22 25.5 23.5 26.8 25 26.8 C 26.5 26.8 28 25.5 30.5 25.5
+      C 34 25.5 35.8 28.2 35.2 32 C 34.5 35.8 32 38.2 29.5 38.5
+      C 27 38.8 25.5 37.5 25 37.5 C 24.5 37.5 23 38.8 20.5 38.5
+      C 18 38.2 15.5 35.8 14.8 32 C 14.2 28.2 16 25.5 19.5 25.5 Z
+    " fill="url(#padLayer3Dark)" />
+
+    <path d="
+      M 21 28 C 22.8 28 23.8 29 25 29 C 26.2 29 27.2 28 29 28
+      C 31.8 28 33 30 32.5 33 C 32 35.8 30 37.2 28 37.4
+      C 26.2 37.6 25.4 36.5 25 36.5 C 24.6 36.5 23.8 37.6 22 37.4
+      C 20 37.2 18 35.8 17.5 33 C 17 30 18.2 28 21 28 Z
+    " fill="url(#padLayer4Dark)" />
+
+    <path d="
+      M 22.5 30.5 C 23.8 30.5 24.5 31.2 25 31.2 C 25.5 31.2 26.2 30.5 27.5 30.5
+      C 29.2 30.5 30 31.8 29.6 33.8 C 29.2 35.5 27.8 36.4 26.5 36.5
+      C 25.5 36.6 25 35.8 25 35.8 C 25 35.8 24.5 36.6 23.5 36.5
+      C 22.2 36.4 20.8 35.5 20.4 33.8 C 20 31.8 20.8 30.5 22.5 30.5 Z
+    " fill="url(#padCoreSageDark)" />
   </g>
-  <!-- Studio Text with Enhanced Prominent Bright Slogan for Dark Theme -->
-  <text x="48" y="26" font-family="'Playfair Display', Georgia, serif" font-size="22" font-weight="700" fill="#EAA186" letter-spacing="0.5">PawVinci</text>
-  <text x="49" y="41" font-family="'DM Sans', -apple-system, sans-serif" font-size="10" font-weight="800" fill="#FAF5F0" letter-spacing="2.2">PET PORTRAIT ATELIER</text>
+
+  <!-- Studio Brand Typography for Dark Themes -->
+  <g transform="translate(56, 0)">
+    <text x="0" y="27" font-family="'Playfair Display', Georgia, serif" font-size="23" font-weight="700" fill="#EAA186" letter-spacing="0.4">PawVinci</text>
+    <text x="1" y="42" font-family="'DM Sans', -apple-system, sans-serif" font-size="9.5" font-weight="800" fill="#FAF5F0" letter-spacing="2.2">PET PORTRAIT ATELIER</text>
+  </g>
 </svg>

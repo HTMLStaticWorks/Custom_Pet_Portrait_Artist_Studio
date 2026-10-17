@@ -251,7 +251,7 @@ p {
 }
 
 [data-theme="dark"] .logo img {
-  filter: brightness(1.2) contrast(1.05);
+  filter: none;
 }
 
 .nav-links {

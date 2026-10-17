@@ -120,6 +120,74 @@
       box-shadow: 0 4px 14px rgba(196, 104, 73, 0.35);
     }
 
+    /* Mobile Responsive Optimizations for Homepage 1 Hero */
+    @media (max-width: 768px) {
+      .collection-hero {
+        height: auto !important;
+        min-height: unset !important;
+        padding-top: 60px !important;
+        padding-bottom: 85px !important;
+        display: block !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .collection-hero {
+        height: auto !important;
+        min-height: unset !important;
+        padding-top: 50px !important;
+        padding-bottom: 95px !important;
+      }
+      .collection-title {
+        font-size: 2.1rem !important;
+        margin-bottom: 14px !important;
+      }
+      .collection-lead {
+        font-size: 0.98rem !important;
+        margin-bottom: 22px !important;
+      }
+      .collection-filter-bar {
+        margin-top: 20px !important;
+        margin-bottom: 15px !important;
+      }
+    }
+
+    /* Mobile 360px and small viewports: Substantial bottom padding & comfort breathing room */
+    @media (max-width: 380px) {
+      .collection-hero {
+        height: auto !important;
+        min-height: unset !important;
+        padding-top: 45px !important;
+        padding-bottom: 110px !important; /* Substantially increased bottom padding for mobile 360 */
+      }
+      .collection-eyebrow {
+        font-size: 0.72rem !important;
+        padding: 4px 12px !important;
+        margin-bottom: 12px !important;
+      }
+      .collection-title {
+        font-size: 1.85rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 12px !important;
+      }
+      .collection-lead {
+        font-size: 0.92rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 20px !important;
+        padding: 0 4px !important;
+      }
+      .collection-filter-bar {
+        margin-top: 18px !important;
+        margin-bottom: 25px !important;
+        gap: 8px !important;
+      }
+      .filter-pill {
+        padding: 8px 16px !important;
+        font-size: 0.82rem !important;
+      }
+    }
+
+
     /* Studio Journey Steps */
     .steps-grid {
       display: grid;
@@ -939,7 +1007,7 @@
       <div class="footer-grid fade-in-up">
         <div style="text-align: inherit;">
           <a href="index.html" class="logo">
-            <img src="assets/images/logo.svg" alt="PawVinci Pet Portrait Studio" style="height: 42px; width: auto;">
+            <img src="assets/images/logo-dark.svg" alt="PawVinci Pet Portrait Studio" style="height: 42px; width: auto;">
           </a>
           <p class="footer-desc">Bespoke fine art pet portraiture honoring loyal companions worldwide. Hand-crafted in
             watercolor, graphite, white pencil, and oil since 2012.</p>

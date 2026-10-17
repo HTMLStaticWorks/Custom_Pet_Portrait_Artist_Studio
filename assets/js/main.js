@@ -2,13 +2,14 @@
 const updateLogo = (theme) => {
   const logos = document.querySelectorAll('.logo img');
   logos.forEach(img => {
-    if (theme === 'dark') {
+    if (img.closest('.footer')) {
       img.src = 'assets/images/logo-dark.svg';
     } else {
-      img.src = 'assets/images/logo.svg';
+      img.src = theme === 'dark' ? 'assets/images/logo-dark.svg' : 'assets/images/logo.svg';
     }
   });
 };
+
 
 const toggleTheme = () => {
   const html = document.documentElement;
